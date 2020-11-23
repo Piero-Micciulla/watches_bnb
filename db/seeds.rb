@@ -7,7 +7,8 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Watch.destroy_all
+User.destroy_all
 puts 'Creating 10 users...'
 10.times do
   user = User.create(
@@ -15,18 +16,19 @@ puts 'Creating 10 users...'
     last_name: Faker::Name::last_name,
     address: Faker::Address.full_address,
     email: Faker::Internet.email,
-    encrypted_password: Faker::Internet.password,
+    password: Faker::Internet.password,
     )
 end
-puts "Created 10 users"
+puts "Created #{User.count} users"
 
-
-puts 'Creating 10 watches...'
-10.times do
-  watch = Watch.create(
-    brand: Faker::FunnyName.two_word_name,
-    price: rand(9000..50000),
-    user_id: rand(1..10),
-    )
+User.all.each do |user|
+  3.times do
+    watch = Watch.create(
+      brand: Faker::FunnyName.two_word_name,
+      price: rand(9000..50000),
+      description: Faker::Restaurant.description,
+      user: user
+      )
+  end
+  puts "Created #{Watch.count} watches"
 end
-puts "Created 10 watches"
