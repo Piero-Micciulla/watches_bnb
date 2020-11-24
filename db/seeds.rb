@@ -17,7 +17,7 @@ puts 'Creating 10 users...'
     last_name: Faker::Name::last_name,
     address: Faker::Address.full_address,
     email: Faker::Internet.email,
-    password: Faker::Internet.password,
+    password: Faker::Internet.password
     )
 end
 puts "Created #{User.count} users"
