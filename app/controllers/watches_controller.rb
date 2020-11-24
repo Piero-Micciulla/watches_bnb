@@ -11,6 +11,7 @@ class WatchesController < ApplicationController
 
   def new
     @watch = Watch.new
+    @disable_footer = true
   end
 
   def create
