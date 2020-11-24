@@ -8,9 +8,7 @@ padding: 10px;
 
 }
 
-.card-text{
-  font-family:times;
-}
+
 
 .card-title{
   font-family:times;
@@ -75,11 +73,12 @@ background-position: 20% 10%;
   padding-top: 10px;
   color: silver;
   text-align: center;
+}
 
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
