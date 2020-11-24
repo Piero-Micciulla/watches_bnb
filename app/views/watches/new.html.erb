@@ -1,14 +1,17 @@
-<div class="new-container w-50 ">
-  <div class="new-watch  ">
-    Add a new watch
+ <div class="new-watch-body">
+  <div class="new-container w-50 ">
+    <div class="new-watch  ">
+      Add a new watch
 
-  <div class="card-body">
-<%= simple_form_for @watch do |f| %>
-          <%= f.input :brand %>
-          <%= f.input :description %>
-          <%= f.input :photo, as: :file %>
-          <%= f.submit "Submit", class: "btn btn-dark  w-25" %>
-        <% end %>
-  </div>
+    <div class="card-body">
+
+    <%= simple_form_for @watch do |f| %>
+              <%= f.input :brand %>
+              <%= f.input :description %>
+              <%= f.input :photos, as: :file %>
+              <%= f.submit "Submit", class: "btn btn-dark  w-25" %>
+            <% end %>
+
+    </div>
   </div>
 </div>
