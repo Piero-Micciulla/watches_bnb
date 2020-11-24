@@ -1,0 +1,66 @@
+body {
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,h2,h3,p {
+  font-family: 'Raleway', sans-serif;
+  color: #555555;
+}
+
+h1 {
+  font-size: 20px;
+  color: white;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+.dashboard-body {
+  height: 100vh;
+}
+
+.dashboard-title {
+  background-color: rgba(255,255,255,0.6);
+  position: absolute;
+  top: 40px;
+  left: 120px;
+  padding: 20px;
+}
+
+.dashboard-sidebar {
+  width: 15%;
+  background-image: url(sidebar.jpg);
+  height: 100vh;
+  background-size: contain;
+}
+
+.dashboard-tabs {
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.tab-title {
+  margin-right: 5px;
+  padding-top: 5px;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  padding-right:20px;
+  border-radius: 3px;
+  color: #555555;
+  font-size: 18px;
+}
+
+.nav-tabs {
+  margin-top: 20px;
+}
+
+.tab-pane {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+

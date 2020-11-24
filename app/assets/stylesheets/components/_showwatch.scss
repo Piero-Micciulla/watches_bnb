@@ -1,0 +1,34 @@
+.show_card {
+  background-color: white;
+  opacity: 0.95;
+  height: 320px;
+  border-radius: 20px;
+  margin-top: 30px;
+
+}
+
+.col-md-4 {
+  background-image: url("Rolex-GMT-master.jpg");
+  background-size: cover;
+  border-radius: 10px;
+  padding-top: 20px;
+}
+
+
+.col-md-8 {
+  padding-left: 100px;
+  font-family: "Raleway", sans-serif;
+}
+
+.show-watch{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+body {
+  background-image: url("show.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+

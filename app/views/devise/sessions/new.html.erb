@@ -16,13 +16,15 @@
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 
 
-  <div class="form-actions ">
-    <button type="button" class="btn login btn-secondary btn-sm">Login</button>
+  <div class="login-actions ">
+    <button type="button" class="btn btn-dark  w-25">Login</button>
+  </div>
+  <div class ="signin-actions">
+     <button type="button" class="btn btn-dark  w-25">Sign up</button>
 
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
 
 
 
