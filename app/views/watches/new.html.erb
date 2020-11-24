@@ -1,0 +1,7 @@
+<h1>Create new watch</h1>
+
+<%= simple_form_for @watch do |f| %>
+          <%= f.input :name %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit "Submit", class: "btn btn-dark" %>
+        <% end %>
