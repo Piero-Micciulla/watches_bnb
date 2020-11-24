@@ -1,27 +1,26 @@
-body {
-  background-color: white;
-}
-
 a {
   text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration:none;
 }
 
 h1,h2,h3,p {
   font-family: 'Raleway', sans-serif;
-  color: #555555;
 }
 
 h1 {
   font-size: 20px;
-  color: white;
 }
 
 h3 {
   font-size: 17px;
 }
 
-.dashboard-body {
-  height: 100vh;
+.dashboard-home {
+  background-color: white;
 }
 
 .dashboard-title {
@@ -34,14 +33,16 @@ h3 {
 
 .dashboard-sidebar {
   width: 15%;
-  background-image: url(sidebar.jpg);
+  min-width: 150px;
+  background-image: url(background-01.jpg);
   height: 100vh;
-  background-size: contain;
+  background-size: cover;
+  position: sticky;
+  top: 0;
 }
 
 .dashboard-tabs {
   margin-left: 10px;
-  margin-top: 20px;
 }
 
 .tab-title {
@@ -63,4 +64,72 @@ h3 {
   margin-top: 20px;
   margin-left: 20px;
 }
+
+.dashboard-style-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+}
+
+.logo-box {
+  margin-top: 20px;
+}
+
+.dashboard-card {
+  border: 1px solid white;
+  border-top: 30px solid white;
+  padding: 20px 10px;
+  margin: 10px;
+  border-radius: 5px 5px 0 0;
+  background-color: rgba(194,227,224,0.2);
+  box-shadow: 3px 3px 10px 2px rgba(137,137,137,0.2);
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: auto;
+}
+
+.btn-dashboard {
+  background-color: white;
+  font-height: 8px;
+  box-shadow: 2px 2px 8px 5px rgba(133,133,133,0.1);
+}
+
+.btn-dashboard:hover {
+  background-color: rgba(133,133,133,0.6);
+  border: 0.5px solid white;
+  color: white;
+}
+
+.fa-home {
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+}
+
+a#profile-tab {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+a#home-tab.active {
+  background-color: #232323;
+}
+
+a#profile-tab.active {
+  background-color: #232323;
+  color: white;
+}
+
+a#home-tab:hover {
+  color: #B8B8B8;
+}
+
+a#profile-tab:hover {
+  color: #B8B8B8;
+}
+
 
