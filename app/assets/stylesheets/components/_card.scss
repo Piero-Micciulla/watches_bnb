@@ -15,19 +15,66 @@ padding: 10px;
 .card-title{
   font-family:times;
 }
-.card{
-  background-image: linear-gradient(315deg, #e9bcb7 0%, #29524a 74%);
+.card-watches{
+  background-color: rgba(52, 58, 64, 0.4);
   background-position: 50% 10%;
   width: auto;
   border-radius: 10px;
   text-align: center;
   height: 200px;
-
+  margin: 10px;
+  margin-left: 65px;
+  opacity: 10px;
 }
-.btn-primary{
-  border-radius: 10px;
+
+.card-title{
+  color:silver;
+  text-align: left;
+  text-shadow: 2px 2px #677175;
 }
 
+.index-button {
+  box-shadow: 2px 2px 10px 2px rgba(87, 96, 97, 0.6);
+  background:linear-gradient(to bottom, #677175 5%, #696f70 100%);
+  background-color:#677175;
+  border-radius:18px;
+  border:0.2px solid #6b6b6b;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:17px;
+  padding:5px 10px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #3d768a;
+}
+.index-button:hover {
+  background:linear-gradient(to bottom, #696f70 5%, #677175 100%);
+  background-color:#696f70;
+}
+.index-button:active {
+  position:relative;
+  top:1px;
+}
+
+
+
+
+.index-page{
+background-image: url(indexbackgorund2.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: 20% 10%;
+}
+
+
+.page-header{
+  background-color: black;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  color: silver;
+  text-align: center;
 
 .card-category {
   background-size: cover;

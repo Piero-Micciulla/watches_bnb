@@ -1,14 +1,17 @@
 <div class="index-page">
 
   <div class="page-header">
-    <h4>Check out our  <strong>watches</strong></h4>
+    <h1>Our <strong>watches</strong></h1>
   </div>
   <div class="index-page">
     <div class="row">
       <% @watches.each do |watch| %>
-        <%= render 'card', watch: watch %>
+
+      <%= render 'card', watch: watch %>
       <% end %>
     </div>
+    </div>
+
   </div>
 </div>
 
