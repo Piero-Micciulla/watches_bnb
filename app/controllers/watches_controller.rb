@@ -6,7 +6,6 @@ class WatchesController < ApplicationController
   end
 
   def show
-    @watch
   end
 
   def new
