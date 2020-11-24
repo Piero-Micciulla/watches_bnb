@@ -1,0 +1,32 @@
+.new-container{
+color: white;
+font-style: oblique;
+margin-left: 400px;
+background-color: rgba(52, 58, 64, 0.6);
+background-position: 50% 10%;
+width: auto;
+border-radius: 10px;
+text-align: center;
+height: 400px;
+margin-top: 120px;
+margin-bottom: 120px;
+padding: 25px;
+
+}
+
+h1{
+  font-family: sans-serif;
+}
+
+body{
+background-image: url(background.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover
+}
+
+
+.btn-dark{
+  background-color: #FFD700;
+  border-radius: 40px;
+}
