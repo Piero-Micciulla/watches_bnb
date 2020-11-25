@@ -1,4 +1,5 @@
 require 'faker'
+require "open-uri"
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
@@ -16,7 +17,7 @@ puts 'Creating 10 users...'
     last_name: Faker::Name::last_name,
     address: Faker::Address.full_address,
     email: Faker::Internet.email,
-    password: Faker::Internet.password,
+    password: Faker::Internet.password
     )
 end
 puts "Created #{User.count} users"
@@ -29,6 +30,8 @@ User.all.each do |user|
       description: Faker::Restaurant.description,
       user: user
       )
+    file = URI.open('https://source.unsplash.com/1600x900/?watch')
+    watch.photos.attach(io: file, filename: "#{watch.brand}.jpg", content_type: 'image/jpg')
   end
   puts "Created #{Watch.count} watches"
 end
