@@ -42,21 +42,21 @@ padding: 10px;
   font-family:times;
 }
 .card-watches{
-  background-color: rgba(52, 58, 64, 0.3);
+  background-color: rgba(52, 58, 64, 0.1);
   background-position: 50% 10%;
   width: auto;
   border-radius: 10px;
   text-align: center;
   height: 200px;
   margin: 10px;
-  margin-left: 65px;
+  margin-left: 15px;
   opacity: 10px;
 }
 
 .card-title{
-  color:#A9A9A9;
+  color:white;
   text-align: left;
-  text-shadow: 2px 1px #000000;
+
 }
 
 .index-button {
@@ -84,8 +84,16 @@ padding: 10px;
 }
 
 
+.cards-index-container{
+  width: 75vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
 #map-container{
   display:flex;
+
 }
 
 #map{

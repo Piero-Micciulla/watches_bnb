@@ -19,6 +19,7 @@ User.destroy_all
 
 5.times do
 Booking.destroy_all
+end
 
 puts 'Creating 10 users...'
 10.times do
