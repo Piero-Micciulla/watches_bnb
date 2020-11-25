@@ -13,6 +13,8 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @watch = Watch.find(params[:watch_id])
+
   end
 
   def create

@@ -10,7 +10,7 @@
             <p class="card-text"> <%= @watch.description %> </p>
             <p class="card-text"> <%= @watch.price %> € </p>
             <div class="inner-wrapper header-textbox-bottom-right">
-              <button class="btn btn-primary">Book now</button>
+              <%= link_to "book now", new_watch_booking_url(@watch), class:"btn btn-primary"%>
             </div>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           </div>
