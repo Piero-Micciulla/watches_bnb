@@ -33,7 +33,7 @@ User.all.each do |user|
   3.times do
     watch = Watch.create(
       brand: Faker::FunnyName.two_word_name,
-      price: rand(9000..50000),
+      price: rand(100..5000),
       description: Faker::Restaurant.description,
       user: user
       )
