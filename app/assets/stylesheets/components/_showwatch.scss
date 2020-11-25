@@ -1,33 +1,69 @@
 .show_card {
   background-color: white;
   opacity: 0.95;
-  height: 320px;
+  height: 360px;
   border-radius: 20px;
   margin-top: 30px;
+  border-style: solid;
+  border-color: #1111;
 
 }
 
 .col-md-4 {
   background-size: cover;
+  margin: center;
   border-radius: 10px;
   padding-top: 20px;
+
 }
 
+#watch-card{
+  height: 100%;
+}
 
 .col-md-8 {
-  padding-left: 100px;
   font-family: "Raleway", sans-serif;
 }
 
 .show-watch{
   display: flex;
   justify-content: space-evenly;
+  position: absolute;
+  top: 160px;
+  left: 80px;
 }
 
 .show-watch-body {
   background-image: url("show.jpg");
   background-size: cover;
   background-position: center;
+  height: 650px;
 }
 
+.card-body{
+  padding-left: 30px;
+  height: 100%;
+}
 
+.display-top{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.display-bottom{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  align-items: flex-end;
+}
+
+.correct-display{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 40px;
+}
