@@ -50,8 +50,12 @@
               <div class="display-bottom">
                 <p class="card-text"> <%= @watch.price %> € </p>
                 <div class="inner-wrapper header-textbox-bottom-right">
-                  <button class="btn btn-primary" style="border-radius: 8px">Book now</button>
-              </div>
+                  <% if user_signed_in? %>
+                  <%= link_to 'Book Now', new_watch_booking_path(@watch), class: "btn book-btn btn-primary" %>
+                  <% else %>
+                  <%= link_to 'Book Now', user_session_path(), class: "btn book-btn btn-primary" %>
+                  <% end %>
+                </div>
             </div>
             <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
           </div>
