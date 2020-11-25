@@ -1,6 +1,5 @@
 require 'faker'
 require "open-uri"
-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -21,7 +20,6 @@ puts 'Creating 10 users...'
     )
 end
 puts "Created #{User.count} users"
-
 User.all.each do |user|
   3.times do
     watch = Watch.create(
@@ -35,3 +33,10 @@ User.all.each do |user|
   end
   puts "Created #{Watch.count} watches"
 end
+admin = User.create(
+  first_name: "camille",
+  last_name: "schull",
+  address: "Le wagon",
+  email: "lewagon@wagon.com",
+  password: "123456"
+  )
