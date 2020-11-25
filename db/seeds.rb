@@ -58,3 +58,4 @@ end
 
 puts "Created #{Booking.count} bookings"
 
+
