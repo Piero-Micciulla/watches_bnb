@@ -65,7 +65,7 @@
                   <img class="card-img-top" src="..." alt="Card image cap">
                   <div class="card-body">
                     <div class="booked-card-info d-flex justify-content-between">
-                      <h5 class="card-title"><%= booking.watch.brand %></h5>
+                      <h5 class="card-title-dashboard"><%= booking.watch.brand %></h5>
                       <p class="card-text">€ <%= booking.watch.price %></p>
                     </div>
                     <div class="lender-info-card">
@@ -122,21 +122,23 @@
 
               </div>
 
-              <div class="my-watch-edits">
-                <div class="edit-watch d-flex justify-content-around align-items-center">
-                  <class class="edit-watch-title">
-                    <p>Edit my watch</p>
-                  </class>
-                  <i class="fas fa-edit"></i>
+                <div class="my-watch-edits">
+                  <%= link_to edit_watch_path(watch) do %>
+                    <div class="edit-watch d-flex justify-content-around align-items-center">
+                      <class class="edit-watch-title">
+                        <p>Edit my watch</p>
+                      </class>
+                      <i class="fas fa-edit"></i>
+                    </div>
+                  <% end %>
+                  <div class="my-watch-summmary">
+                    <p><strong>Summary:</strong></p>
+                    <class class="summary-data d-flex justify-content-around">
+                      <p> Number of bookings: </p>
+                      <p><%= watch.bookings.count %></p>
+                    </class>
+                  </div>
                 </div>
-                <div class="my-watch-summmary">
-                  <p><strong>Summary:</strong></p>
-                  <class class="summary-data d-flex justify-content-around">
-                    <p> Number of bookings: </p>
-                    <p><%= watch.bookings.count %></p>
-                  </class>
-                </div>
-              </div>
             </div>
           <% end %>
         </div>
