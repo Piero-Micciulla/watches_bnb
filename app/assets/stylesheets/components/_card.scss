@@ -84,10 +84,19 @@ padding: 10px;
 }
 
 
+#map-container{
+  display:flex;
+}
 
+#map{
+  position: sticky;
+  height: 100%;
+  top:0;
+}
 
 .index-page{
-background-image: url(indexbackgorund2.jpg);
+
+background-image: url(background8.jpg);
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;

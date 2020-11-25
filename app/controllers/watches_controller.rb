@@ -4,6 +4,13 @@ class WatchesController < ApplicationController
 
   def index
     @watches = Watch.all
+
+    @markers = @watches.geocoded.map do |watch|
+      {
+        lat: watch.latitude,
+        lng: watch.longitude
+      }
+    end
   end
 
   def show
@@ -51,6 +58,4 @@ class WatchesController < ApplicationController
   def find_watch
     @watch = Watch.find(params[:id])
   end
-
 end
-

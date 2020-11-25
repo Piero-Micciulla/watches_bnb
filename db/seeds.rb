@@ -9,8 +9,15 @@ require "open-uri"
 #   Character.create(name: 'Luke', movie: movies.first)
 Watch.destroy_all
 User.destroy_all
-puts 'Creating 10 users...'
-10.times do
+
+ ADDRESSES = [
+'Via del Correggio 1, 63074 San Benedetto del Tronto',
+'Maarten Lutherweg 122, 1185 Amstelveen',
+'Charley Tooropgracht 843, 1112 Diemen',
+'Hovendaal 91, 9660 Brakel'
+ ]
+
+5.times do
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name::last_name,
@@ -26,6 +33,7 @@ User.all.each do |user|
       brand: Faker::FunnyName.two_word_name,
       price: rand(9000..50000),
       description: Faker::Restaurant.description,
+      address: ADDRESSES.sample,
       user: user
       )
     file = URI.open('https://source.unsplash.com/1600x900/?watch')
