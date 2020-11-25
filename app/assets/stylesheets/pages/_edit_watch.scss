@@ -1,0 +1,65 @@
+.edit-my-watch{
+  background-color: #DDDDDD;
+  margin: 0;
+  padding-bottom: 40px;
+  height: 100vh;
+}
+
+.edit-watch-title-name {
+  background-color: #292929;
+  min-height: 120px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: block;
+}
+
+.edit-my-watch .logo-box {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.my-watch-info-edit {
+  width: 80%;
+}
+
+.edit-my-watch .my-watch-card {
+  padding: 20px;
+  width: 90%;
+  margin: 60px auto;
+}
+
+.edit-watch-details {
+  display: flex;
+}
+
+.fa-edit {
+  padding-left: 20px;
+}
+
+.fa-edit:hover {
+  color: #1EDD88;
+  cursor: pointer;
+}
+
+.editBlock {
+  margin-bottom: 20px;
+}
+
+input[type="submit"]#btn-edit {
+  background-color: #F6F6F6;
+  min-width: 180px;
+  border-radius: 20px;
+  padding: 4px 10px;
+  margin-bottom: 20px;
+  color: #79C3BD;
+  border: none;
+}
+
+input[type="submit"]#btn-edit:hover {
+  background-color: #D2D2D2;
+  color: white;
+}

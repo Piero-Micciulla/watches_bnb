@@ -1,0 +1,105 @@
+
+
+
+.request-booking{
+text-align: center;
+margin-top: 25px;
+background-image: url(background8.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: 20% 10%;
+height: calc(100vh - 50px);
+
+}
+
+.booking-brand{
+  text-align: center;
+
+
+}
+
+.booking-info{
+  width: auto;
+  border-radius: 10px;
+  text-align: center;
+  height: 220px;
+  width: 50%;
+  margin: 10px;
+  opacity: 10px;
+  color: white;
+  background-color: rgba(52, 58, 64, 0.2);
+  border-style: solid;
+  border-color: #1111;
+}
+.request-to-book{
+  text-align: center;
+  color: black;
+}
+
+
+.dates-picker{
+  background-color: rgba(52, 58, 64, 0.2);
+  background-position: 50% 10%;
+  width: 500px;
+  border-radius: 10px;
+  text-align: center;
+  height: 220px;
+  margin: 10px;
+  margin-left: 20px;
+  opacity: 10px;
+  color: white;
+  margin-bottom: 24px;
+  border-style: solid;
+  border-color: #1111;
+
+}
+
+.booking-pay{
+  color:black;
+   background-color: rgba(52, 58, 64, 0.2);
+  background-position: 50% 10%;
+  width: 500px;
+  border-radius: 10px;
+  text-align: center;
+  height: auto;
+  margin: 10px;
+  margin-left: 20px;
+  margin-right: 600px;
+  opacity: 10px;
+  color: white;
+  border-style: solid;
+  border-color: #1111;
+}
+
+
+.date-button{
+  ox-shadow:inset 0px 1px 0px 0px #54a3f7;
+  background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+  background-color:#007dc1;
+  border-radius:3px;
+  border:1px solid #124d77;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:13px;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #154682;
+}
+.date-button:hover {
+  background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+  background-color:#0061a7;
+}
+.date-button:active {
+  position:relative;
+  top:1px;
+}
+
+
+.panel-title {display: inline;font-weight: bold;}
+.checkbox.pull-right { margin: 0; }
+.pl-ziro { padding-left: 0px; }
+
+

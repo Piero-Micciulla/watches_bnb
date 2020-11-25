@@ -18,6 +18,10 @@ User.destroy_all
  ]
 
 5.times do
+Booking.destroy_all
+
+puts 'Creating 10 users...'
+10.times do
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name::last_name,
@@ -26,6 +30,13 @@ User.destroy_all
     password: Faker::Internet.password
     )
 end
+admin = User.create(
+  first_name: "camille",
+  last_name: "schull",
+  address: "Le wagon",
+  email: "lewagon@wagon.com",
+  password: "123456"
+  )
 puts "Created #{User.count} users"
 User.all.each do |user|
   3.times do
@@ -41,10 +52,20 @@ User.all.each do |user|
   end
   puts "Created #{Watch.count} watches"
 end
-admin = User.create(
-  first_name: "camille",
-  last_name: "schull",
-  address: "Le wagon",
-  email: "lewagon@wagon.com",
-  password: "123456"
-  )
+
+
+puts "Creating 10 bookings"
+10.times do
+  x = 0
+  Booking.create(
+    start_date: Date.today,
+    end_date: Date.tomorrow,
+    watch_id: (Watch.last.id - x),
+    user_id: (User.last.id)
+    )
+  x += 1
+end
+
+puts "Created #{Booking.count} bookings"
+
+
