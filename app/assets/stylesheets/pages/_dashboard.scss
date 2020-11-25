@@ -7,6 +7,11 @@ a:hover {
   text-decoration:none;
 }
 
+.card-title-dashboard {
+  color: black;
+  font-family: 'Raleway', sans-serif;
+}
+
 .dashboard-title {
   background-color: rgba(255,255,255,0.6);
   position: absolute;
@@ -76,7 +81,7 @@ a:hover {
 
 .dashboard-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   overflow: auto;
 }
 
@@ -194,7 +199,6 @@ p.lender-info {
 }
 
 .dashboard-home {
-  padding: 20px;
 }
 
 .my-watch-cards {
@@ -233,4 +237,9 @@ p.lender-info {
 
 .edit-watch-title {
   padding-top: 18px;
+}
+
+.dropdown.dashboard-home{
+  padding-top: 20px;
+  padding-right: 20px;
 }

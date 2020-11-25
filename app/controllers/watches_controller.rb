@@ -1,9 +1,16 @@
 class WatchesController < ApplicationController
-  before_action :find_watch, only: [:show, :edit]
+  before_action :find_watch, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @watches = Watch.all
+
+    @markers = @watches.geocoded.map do |watch|
+      {
+        lat: watch.latitude,
+        lng: watch.longitude
+      }
+    end
   end
 
   def show
@@ -31,7 +38,7 @@ class WatchesController < ApplicationController
     @watch
     if @watch.update(strong_params)
       flash[:notice] = "Created"
-      redirect_to watch_path(@watch)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -45,12 +52,10 @@ class WatchesController < ApplicationController
   private
 
   def strong_params
-    params.require(:watch).permit(:id, :description, :price, :photos)
+    params.require(:watch).permit(:id, :description, :price, :photos, :brand)
   end
 
   def find_watch
     @watch = Watch.find(params[:id])
   end
-
 end
-
