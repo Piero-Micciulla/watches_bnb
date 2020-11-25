@@ -1,8 +1,10 @@
 class BookingsController < ApplicationController
    before_action :find_booking, only: [:show, :edit, :destroy]
+   before_action :authenticate_user!
 
   def dashboard
     @bookings = Booking.all
+    @disable_navbar = true
   end
 
   def show

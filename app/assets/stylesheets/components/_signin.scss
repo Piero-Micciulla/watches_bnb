@@ -1,11 +1,7 @@
-body{
-  background-color: black;
-}
-
-h2{
-  font-style: italic;
-  color: gold;
-
+.login-title{
+  color: white;
+  font-weight: 100;
+  padding: 10px;
 }
 
 h4
@@ -14,47 +10,61 @@ h4
 }
 
 .login{
-padding: 3px;
-color: #FFD700;
+  padding: 7px;
+  color: white;
 }
 
 .form-inputs{
-color: #FFD700;
-font-style: oblique;
+  color: white;
+  text-align: center;
+  font-weight: 100;
 }
 
 
 .login-actions{
 
-  color: #FFD700;
+  color: white;
 }
 
 .signin-actions{
-color: silver;
-}
-
-.index-page{
-  color:#FFD700;
-}
-
-.btn2{
-background-color: #000;
-}
-
-
-
-.container{
 color: white;
-font-style: oblique;
-margin-left: 400px;
-background-color: rgba(52, 58, 64, 0.6);
-background-position: 50% 10%;
-width: auto;
-border-radius: 10px;
-text-align: center;
-height: 400px;
-margin-top: 120px;
-margin-bottom: 120px;
-padding: 25px;
+}
 
+.container-sign-in .btn{
+  background-color: #626262;
+  padding: 5px;
+  margin: 5px;
+  border: 0.3px solid rgba(255,255,255,0.3);
+}
+
+.btn:hover {
+
+}
+.container.w-50{
+  text-style: none;
+  color: white;
+  background-color: rgba(52, 58, 64, 0.6);
+  background-position: 50% 10%;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 120px;
+  margin-bottom: 120px;
+  padding: 25px;
+}
+
+.container-sign-in {
+  display: flex;
+  justify-content: center;
+  background-image: url(background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover
+}
+
+input#user_email {
+  width: 50%;
+}
+
+input#user_password {
+  width: 50%;
 }
