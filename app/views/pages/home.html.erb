@@ -11,20 +11,23 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <div class="items-menu-bar d-flex align-items-center">
+          <%= link_to dashboard_path do %>
+            <i class="fas fa-home fa-2x"></i>
+          <% end %>
+          <div class="dropdown dashboard-home">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Payment Info</a>
+              <a class="dropdown-item" href="#">Account Setting</a>
+              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                <i class="fas fa-sign-out-alt"></i>
+              <% end %>
+            </div>
           </div>
-        </li>
+        </div>
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
@@ -34,22 +37,22 @@
   </div>
 </div>
 
-<div class="banner">
+<div class="main-photo-banner">
   <div class="banner-container">
-    <h1><strong>Watch it</strong>!</h1>
-    <p>Impress your friends with a trendy watch</p>
+    <div class="slogan-main">
+      <p>Be on time, in style.</p>
+    </div>
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-<form class="searchform group">
-  <label for="search-box">
-    <span class="fa fa-2x fa-search"></span>
-  </label>
-
-  <input type="search" id="search-box" placeholder="Search">
-</form>
-
-    <a class="rent-button-to-watches" href="#">Rent now</a>
+    <form class="searchform group main">
+      <label for="search-box">
+        <%= link_to watches_path do %>
+          <span class="fa fa-2x fa-search"></span>
+        <% end %>
+      </label>
+      <input type="search" id="search-box" placeholder="Search">
+    </form>
   </div>
 </div>
 
@@ -70,26 +73,11 @@
           <a class="fb-ic">
             <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
           </a>
-          <!-- Twitter -->
-          <a class="tw-ic">
-            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!-- Google +-->
-          <a class="gplus-ic">
-            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!--Linkedin -->
-          <a class="li-ic">
-            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
           <!--Instagram-->
           <a class="ins-ic">
             <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
           </a>
-          <!--Pinterest-->
-          <a class="pin-ic">
-            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
-          </a>
+
         </div>
       </div>
       <!-- Grid column -->
@@ -101,8 +89,7 @@
   <!-- Footer Elements -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://uglyfoodz.com/"> UglyFoodz.com</a>
+  <div class="footer-copyright text-center py-3">© 2020 Copyright
   </div>
   <!-- Copyright -->
 

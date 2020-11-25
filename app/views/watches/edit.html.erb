@@ -7,6 +7,12 @@
   <div class="logo-box">
     <%= image_tag "logo.png", :class => "dashboard-style-logo", :id => "sidebar" %>
   </div>
+  <%= link_to dashboard_path do %>
+    <div class="back-edit-btn">
+      <i class="fas fa-backspace fa-lg"></i>
+      <p> Take me back </p>
+    </div>
+  <% end %>
 
   <div class="my-watch-card d-flex">
     <div class='my-watch-info-edit'>

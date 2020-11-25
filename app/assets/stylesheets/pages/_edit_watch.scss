@@ -2,7 +2,6 @@
   background-color: #DDDDDD;
   margin: 0;
   padding-bottom: 40px;
-  height: 100vh;
 }
 
 .edit-watch-title-name {
@@ -29,7 +28,8 @@
 .edit-my-watch .my-watch-card {
   padding: 20px;
   width: 90%;
-  margin: 60px auto;
+  margin: 0px auto;
+  margin-bottom: 60px;
 }
 
 .edit-watch-details {
@@ -62,4 +62,26 @@ input[type="submit"]#btn-edit {
 input[type="submit"]#btn-edit:hover {
   background-color: #D2D2D2;
   color: white;
+}
+
+.fa-backspace {
+  margin-top: 10px;
+  margin-left: 20px;
+  color: #79C3BD;
+}
+
+.back-edit-btn p {
+  padding-top: 30px;
+  padding-left: 5px;
+  color: #79C3BD;
+}
+
+.back-edit-btn {
+  display: flex;
+  align-items: center;
+}
+
+.back-edit-btn:hover {
+  color: #62666A;
+  cursor: pointer;
 }
