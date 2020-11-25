@@ -1,10 +1,40 @@
 <div class="dashboard-home">
 
-  <div class="dashboard-body d-flex">
-    <div class="dashboard-sidebar">
-      <div class="logo-box">
-        <%= image_tag "logo.png", :class => "dashboard-style-logo", :id => "sidebar" %>
+  <div class="dashboard-header d-flex justify-content-between">
+
+    <div class="logo-box">
+      <%= image_tag "logo.png", :class => "dashboard-style-logo", :id => "sidebar" %>
+    </div>
+
+      <div class="dashboard-search-bar">
+        <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+          <div class="search-form-control form-group">
+            <input class="form-control string required" type="text" name="search[query]" placeholder="Search for watches" id="search_query" />
+              <%= link_to watches_path, class: "btn btn-flat" do %>
+                <i class="fas fa-search"></i>
+              <% end %>
+            </button>
+          </div>
+        </form>
       </div>
+
+      <div class="dropdown dashboard-home">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="far fa-user-circle"></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Payment Info</a>
+          <a class="dropdown-item" href="#">Account Setting</a>
+          <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+            <i class="fas fa-sign-out-alt"></i>
+          <% end %>
+        </div>
+      </div>
+  </div>
+
+  <div class="dashboard-body d-flex">
+
+    <div class="dashboard-sidebar">
     </div>
 
     <div class="dashboard-tabs">
@@ -14,6 +44,9 @@
         </li>
         <li class="nav-item" role="presentation">
           <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My Watches</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="menu1" data-toggle="tab" href="#menu1" role="tab" aria-controls="profile" aria-selected="false"><i class="fas fa-heart"></i></a>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
@@ -31,10 +64,17 @@
                 <div class="card dashboard-card" style="width: 18rem;">
                   <img class="card-img-top" src="..." alt="Card image cap">
                   <div class="card-body">
-                    <h5 class="card-title"><%= booking.watch.brand %></h5>
-                    <p class="card-text">€ <%= booking.watch.price %></p>
-                    <p class="card-text">Meet your lender:</p>
-                    <p class="card-text"><%= "#{booking.watch.user.first_name} #{booking.watch.user.last_name}"%></p>
+                    <div class="booked-card-info d-flex justify-content-between">
+                      <h5 class="card-title"><%= booking.watch.brand %></h5>
+                      <p class="card-text">€ <%= booking.watch.price %></p>
+                    </div>
+                    <div class="lender-info-card">
+                      <p class="card-text meet-lender">Meet your lender:</p>
+                      <div class="lender-info d-flex justify-content-between">
+                        <p class="card-text"><%= "#{booking.watch.user.first_name} #{booking.watch.user.last_name}"%></p>
+                        <i class="fas fa-envelope"></i>
+                      </div>
+                    </div>
                     <a href="#" class="btn btn-dashboard">See booking details</a>
                   </div>
                 </div>
@@ -53,10 +93,10 @@
                 <div class="card dashboard-card" style="width: 18rem;">
                   <img class="card-img-top" src="..." alt="Card image cap">
                   <div class="card-body">
-                    <h5 class="card-title"><%= booking.watch.brand %></h5>
-                    <p class="card-text">€ <%= booking.watch.price %></p>
-                    <p class="card-text">Meet your lender:</p>
-                    <p class="card-text"><%= "#{booking.watch.user.first_name} #{booking.watch.user.last_name}"%></p>
+                  <div class="booked-card-info d-flex justify-content-between">
+                      <h5 class="card-title"><%= booking.watch.brand %></h5>
+                      <p class="card-text">€ <%= booking.watch.price %></p>
+                    </div>
                     <a href="#" class="btn btn-dashboard">See booking details</a>
                   </div>
                 </div>
@@ -66,19 +106,41 @@
         </div>
 
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <p>more on watches</p>
-        </div>
+          <div class="my-watch-cards">
+          <% current_user.watches.each do |watch| %>
+            <div class="my-watch-card d-flex">
 
-      </div>
+              <div class='my-watch-info'>
 
-        <div id="home" class="tab-pane fade in active">
-          <h3>My rentals</h3>
-          <p>Some content.</p>
+                <% watch.photos.each do |photo| %>
+                  <div class="my-watch-image"style="url(<%= cl_image_path(photo.key) %>)"></div>
+                <% end %>
 
-          <% current_user.bookings.each do |booking| %>
+                <h2><%= watch.brand %></h2>
+                <p><strong>€ <%= watch.price %></strong></p>
+                <p><%= watch.description %></p>
+
+              </div>
+
+              <div class="my-watch-edits">
+                <div class="edit-watch d-flex justify-content-around align-items-center">
+                  <class class="edit-watch-title">
+                    <p>Edit my watch</p>
+                  </class>
+                  <i class="fas fa-edit"></i>
+                </div>
+                <div class="my-watch-summmary">
+                  <p><strong>Summary:</strong></p>
+                  <class class="summary-data d-flex justify-content-around">
+                    <p> Number of bookings: </p>
+                    <p><%= watch.bookings.count %></p>
+                  </class>
+                </div>
+              </div>
+            </div>
           <% end %>
-
         </div>
+      </div>
 
         <div id="menu1" class="tab-pane fade">
           <h3>Menu 1</h3>
