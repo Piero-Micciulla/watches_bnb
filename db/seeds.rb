@@ -37,7 +37,7 @@ User.all.each do |user|
       description: Faker::Restaurant.description,
       user: user
       )
-    file = URI.open('https://source.unsplash.com/1600x900/?watch')
+    file = URI.open('https://source.unsplash.com/1600x900/?watch,men')
     watch.photos.attach(io: file, filename: "#{watch.brand}.jpg", content_type: 'image/jpg')
   end
   puts "Created #{Watch.count} watches"
