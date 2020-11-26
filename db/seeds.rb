@@ -17,6 +17,27 @@ User.destroy_all
 'Hovendaal 91, 9660 Brakel'
  ]
 
+ MATERIALS = [
+  'stainless steel',
+  'wood',
+  'titanium',
+  'ceramics',
+  'yellow gold',
+  'carbon fiber',
+  'rose gold',
+  'platinum',
+  'scratch-resistant sapphire',
+  'acryilic/plexiglass',
+  'mineral crystal',
+  'bronze',
+  'two-tone',
+  'white gold'
+ ]
+
+ MATERIALS.each do |material|
+  Material.new(name: material)
+ end
+
 5.times do
 Booking.destroy_all
 end
@@ -46,6 +67,7 @@ User.all.each do |user|
       price: rand(100..5000),
       description: Faker::Restaurant.description,
       address: ADDRESSES.sample,
+      material: MATERIAL.sample,
       user: user
       )
     file = URI.open('https://source.unsplash.com/1600x900/?watch,men')

@@ -1,5 +1,6 @@
 class Watch < ApplicationRecord
   belongs_to :user
+  belongs_to :material
   has_many :bookings, dependent: :destroy
   validates :price, presence: true
   validates :brand, presence: true
