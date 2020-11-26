@@ -12,12 +12,20 @@ class WatchesController < ApplicationController
     @markers = @watches.geocoded.map do |watch|
       {
         lat: watch.latitude,
-        lng: watch.longitude
+        lng: watch.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { watch: watch }),
+        image_url: helpers.asset_url('map_logo_2.jpg')
       }
     end
   end
 
   def show
+
+    @markers = {
+      lat: @watch.latitude,
+      lng: @watch.longitude,
+      image_url: helpers.asset_url('map_logo_2.jpg')
+    }
   end
 
   def new

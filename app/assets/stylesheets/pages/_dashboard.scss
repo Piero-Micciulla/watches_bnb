@@ -27,7 +27,7 @@ a:hover {
 .dashboard-sidebar {
   width: 15%;
   min-width: 150px;
-  background-image: url(background-01.jpg);
+  background-image: image-url('background-01.jpg');
   height: 100vh;
   background-size: cover;
   position: sticky;
@@ -242,4 +242,13 @@ p.lender-info {
 .dropdown.dashboard-home{
   padding-top: 20px;
   padding-right: 20px;
+}
+
+.dashboard-card-image {
+ height: 40vh;
+ background-position: center;
+}
+
+.booked-card-info h4 {
+  color: black;
 }

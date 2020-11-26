@@ -1,9 +1,8 @@
 .show_card {
   background-color: white;
   opacity: 0.95;
-  height: 360px;
+  height: 450px;
   border-radius: 20px;
-  margin-top: 30px;
   border-style: solid;
   border-color: #1111;
 
@@ -45,14 +44,16 @@
   justify-content: space-evenly;
   position: absolute;
   top: 160px;
-  left: 80px;
+  left: 30px;
+  right: 20px;
+
 }
 
 .show-watch-body {
-  background-image: url("show.jpg");
+  background-image: image-url("show.jpg");
   background-size: cover;
   background-position: center;
-  height: 650px;
+  height: 750px;
 }
 
 .card-body{
@@ -85,4 +86,23 @@
 
 .book-btn{
   border-radius: 5px;
+}
+
+.show-card-watches {
+  height: 70%;
+  width: 60%;
+}
+
+
+.far.fa-heart:hover {
+  color: #79C3BD;
+  cursor: pointer;
+}
+
+.inactive {
+  display: none;
+}
+
+fas.fa-heart.active {
+  color: #79C3BD;
 }

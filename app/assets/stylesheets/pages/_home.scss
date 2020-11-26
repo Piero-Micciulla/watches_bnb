@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .main-photo-banner {
-  background-image: url('watch2.jpg');
+  background-image: image-url('watch2.jpg');
   background-size: cover;
   background-position: center;
   padding: 150px 0;
@@ -21,7 +21,7 @@
   text-shadow: 2px 2px 3px 3px rgba(255,255,255,0.7);
 }
 
-h1,h2,h3,p {
+h1,h2,h3,h4,h5,p {
   font-family: 'Raleway', sans-serif;
 }
 
