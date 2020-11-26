@@ -35,8 +35,11 @@ class WatchesController < ApplicationController
 
   def create
     @watch = Watch.new(strong_params)
+    @watch.user = current_user
+    @watch.user.address = current_user.address
+    raise
     if @watch.save
-      redirect_to watch_path(@watch)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -64,7 +67,7 @@ class WatchesController < ApplicationController
   private
 
   def strong_params
-    params.require(:watch).permit(:id, :description, :price, :photos, :brand)
+    params.require(:watch).permit(:id, :description, :price, :photos, :brand, :start_date, :end_date)
   end
 
   def find_watch
