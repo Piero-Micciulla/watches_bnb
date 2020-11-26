@@ -31,26 +31,32 @@
 padding: 10px;
 }
 
-.card-body{
-  padding: 10px;
+.card-body-index{
+  padding: 15px;
+  text-align: left;
+  padding-top: 25px;
 
 }
 
-
-
-.card-title{
-  font-family:times;
+.card-body-index h4 {
+  font-size: 20px;
+  font-weight: 800;
 }
+
+
+.card-body-index h5 {
+  font-size: 15px;
+  font-weight: normal;
+}
+
 .card-watches{
-  background-color: rgba(52, 58, 64, 0.1);
+  background-color: white;
   background-position: 50% 10%;
   width: auto;
   border-radius: 10px;
   text-align: center;
-  height: 200px;
   margin: 10px;
   margin-left: 15px;
-  opacity: 10px;
 }
 
 .card-title{
@@ -60,32 +66,29 @@ padding: 10px;
 }
 
 .index-button {
-  box-shadow: 2px 2px 10px 2px rgba(87, 96, 97, 0.6);
-  background:linear-gradient(to bottom, #677175 5%, #696f70 100%);
+  box-shadow: 0px 4px 10px 2px rgba(87, 96, 97, 0.2);
   background-color:#677175;
-  border-radius:18px;
-  border:0.2px solid #6b6b6b;
-  display:inline-block;
-  cursor:pointer;
+  border-radius:10px;
+  padding: 5px 10px;
   color:#ffffff;
-  font-family:Arial;
   font-size:17px;
   padding:5px 10px;
-  text-decoration:none;
-  text-shadow:0px 1px 0px #3d768a;
-}
-.index-button:hover {
-  background:linear-gradient(to bottom, #696f70 5%, #677175 100%);
-  background-color:#696f70;
-}
-.index-button:active {
-  position:relative;
-  top:1px;
+  text-decoration :none;
+
 }
 
+.index-btn {
+  padding-top: 15px;
+  padding-right: 20px;
+}
+
+.index-button:hover {
+  background-color: #BDBFC0;
+  color: white;
+  cursor: pointer;
+}
 
 .cards-index-container{
-  width: 75vw;
   display: flex;
   flex-wrap: wrap;
 }
@@ -100,37 +103,62 @@ padding: 10px;
   position: sticky;
   height: 100%;
   top:0;
+  border-radius: 5px;
 }
 
 .index-page{
-
-background-image: image-url("background8.jpg");
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-background-position: 20% 10%;
+  background-image: image-url("background8.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 20% 10%;
 }
 
 
 .page-header{
-  background-color: black;
+  background-color: #DDDDDD;
   padding-bottom: 10px;
-  padding-top: 10px;
-  color: silver;
-  text-align: center;
+  padding-top: 20px;
+  color: white;
+  text-align: left;
+  padding-left: 25px;
 }
 
-.card-category {
+.card-image-index {
   background-size: cover;
-  background-position: center;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 100%;
+}
+
+.card-index-booking {
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  background-color: #F9F9F9;
+}
+
+
+.card-index-booking h4{
+  font-weight: 800;
+  font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.card-index-booking .note-text{
+  padding-top: 10px;
+  font-size: 9px;
+}
+
+.card-body-info {
+  margin: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.card-index-description {
+  padding-top: 15px;
+}
+
+.fa-star{
+  color: #79C3BD;
 }

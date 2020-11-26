@@ -1,13 +1,30 @@
 
+<div class="card-watches d-flex">
 
-  <div class="card-watches" style="width: 18rem;">
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(watch.photos.first.key) %>)">
+  <div class="card-image-index col-4" style="background-image: url(<%= cl_image_path(watch.photos.first.key) %>); background-position: center;">
   </div>
 
-  <div class="card-body">
-    <h5 class="card-title"><strong><%= watch.brand %></strong></h5>
-    <%= link_to 'Show', watch_path(watch), class: "index-button" %>
+  <div class="card-body-info col-8">
+    <div class="card-body-index">
+      <h4 class="card-index-title"><strong><%= watch.brand %></strong></h4>
+      <h5 class="card-index-description"><%= watch.description %></h5>
+    </div>
+    <div class="card-index-booking d-flex justify-content-between">
+      <div>
+        <h4 class="index-price"><strong>€ <%= watch.price %> per day</strong></h4>
+        <div class="stars-index d-flex">
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p class="note-text">Prices may vary depending on selected date </p>
+      </div>
+      <div class="index-btn">
+        <%= link_to 'Show', watch_path(watch), class: "index-button" %>
+      </div>
+    </div>
   </div>
 </div>
 
