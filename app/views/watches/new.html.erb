@@ -1,15 +1,56 @@
- <div class="new-watch-body">
-  <div class="new-container w-50 ">
-    <div class="new-watch  ">
-      <div class="card-body">
-          Add a new watch
-      <%= simple_form_for @watch do |f| %>
-                <%= f.input :brand %>
-                <%= f.input :description %>
-                <%= f.input :photos, as: :file %>
-                <%= f.submit "Submit", class: "btn btn-dark  w-25" %>
-              <% end %>
+
+<div class="edit-my-watch">
+
+  <div class="edit-watch-title-name d-flex justify-content-center align-items-center">
+    <h1>Add your watch</h1>
+  </div>
+
+  <div class="logo-box">
+    <%= image_tag "logo.png", :class => "dashboard-style-logo", :id => "sidebar" %>
+  </div>
+  <%= link_to dashboard_path do %>
+  <div class="back-edit-btn">
+    <i class="fas fa-backspace fa-lg"></i>
+    <p> Take me back </p>
+  </div>
+  <% end %>
+
+  <div class="my-new-watch-card d-flex">
+    <div class="new-form-wrapper" style="width: 400px; margin: 0 auto;">
+      <div class ="date-range"><h7 class= ><strong>Pick your dates</strong></h7></div>
+      <%= simple_form_for [@watch] do |f| %>
+      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <label for="formGroupExampleInput2">Price</label>
+        <div id= "price-value"></div>
+        <input type="range" min="700" max="6000" value="3250" class="slider" id="myRange">
+      <%= f.input :brand %>
+      <%= f.input :description %>
+
+
+      <%= f.input :photos, as: :file, input_html: { multiple: true, name: "post_attachments[photos][]" } %>
+      <%= f.submit "Submit", class: "btn btn-dark  w-25" %>
+
+
       </div>
+      <% end %>
     </div>
+
+
+
   </div>
 </div>
+</div>
+
+<script>
+  const slider = document.getElementById("myRange");
+  let output = document.getElementById("price-value");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
+</script>
+
