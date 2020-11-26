@@ -52,6 +52,7 @@ puts 'Creating 10 users...'
     email: Faker::Internet.email,
     password: Faker::Internet.password
     )
+
 end
 admin = User.create(
   first_name: "camille",
@@ -60,6 +61,7 @@ admin = User.create(
   email: "lewagon@wagon.com",
   password: "123456"
   )
+
 puts "Created #{User.count} users"
 User.all.each do |user|
   3.times do
