@@ -1,4 +1,4 @@
-<div class="show-watch-body">
+  <div class="show-watch-body">
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-dark bg-dark">
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "logo.png", :class => "style-logo" %>
@@ -34,8 +34,9 @@
     </ul>
   </div>
 </div>
+<div id="map-container">
   <div class="show-watch">
-    <div class="show_card" style="min-width: 1200px; max-width:1201px; align-content: center">
+    <div class="show_card" style="min-width: 800px; max-width:801px; align-content: center">
       <div class="row no-gutters" id="watch-card">
         <div class="col-md-4"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(@watch.photos.first.key) %>)">
         </div>
@@ -66,5 +67,10 @@
       </div>
     </div>
   </div>
+  <div id="map"
+         style="width: 35vw; height: 80vh;"
+         data-markers="<%= @markers.to_json %>"
+         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
 </div>
 
