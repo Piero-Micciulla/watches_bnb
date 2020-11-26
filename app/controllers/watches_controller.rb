@@ -8,12 +8,17 @@ class WatchesController < ApplicationController
     @markers = @watches.geocoded.map do |watch|
       {
         lat: watch.latitude,
-        lng: watch.longitude
+        lng: watch.longitude,
       }
     end
   end
 
   def show
+
+    @markers = {
+      lat: @watch.latitude,
+      lng: @watch.longitude,
+    }
   end
 
   def new
