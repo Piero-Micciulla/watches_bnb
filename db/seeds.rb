@@ -11,12 +11,31 @@ Watch.destroy_all
 User.destroy_all
 Material.destroy_all
 
- ADDRESSES = [
-'Via del Correggio 1, 63074 San Benedetto del Tronto',
+ADDRESSES = [
 'Maarten Lutherweg 122, 1185 Amstelveen',
 'Charley Tooropgracht 843, 1112 Diemen',
-'Hovendaal 91, 9660 Brakel'
+'Hovendaal 91, 9660 Brakel',
+'Kerkstraat 273, 1017 Amsterdam',
+'Leidseplein 15, 1017  Amsterdam',
+'Van Breestraat 69, 1071 Amsterdam',
+'Tweede Jan van der Heijdenstraat 2, 1073 Amsterdam',
+'Lindengracht 23, 1015 Amsterdam',
+'Meeuwenlaan 145, 1021 Amsterdam',
+'J.J. Cremerplein 45, 1054 Amsterdam'
  ]
+
+ BRANDS = [
+  'Rolex',
+  'Jaeger leCoutre',
+  'Hublot',
+  'Panerai',
+  'Frank Müller',
+  'Tag Heuer',
+  'Omega',
+  'Breitling',
+  'Audemars Piguet',
+  'Cartier'
+]
 
  MATERIALS = [
   'stainless steel',
@@ -35,6 +54,52 @@ Material.destroy_all
   'white gold'
  ]
 
+ DESCRIPTIONS = [
+  "Rolex is a classic staple of any luxury watch collection. The GMT Master
+  and the Submariner are some of the most popular watches Rolex sells.
+  This is the "'Pepsi'" version. It has a unique blue/red theme to the dial
+  and the GMT hand, which helps add a touch of sportiness to the watch.",
+  "This is a very unique watch. It actually comes with two sides(a black dial
+  and a white dial), all you have to do is flip it and you get to experience
+  an all new watch.",
+  "A great looking sporty 44mm chronograph that adds a touch of class thanks
+  to the rose gold case and accents.",
+  "This is a classic Panerai. It's a 44mm watch that really brings attention
+  to your wrist. The crown guard really helps tell everyone who looks that
+  the watch is special and the sandwich dial is a simple yet classy feature that
+  separates it from the other watches on the market today. And like most PAMs,
+  it has a very easy strap changing mechanism.",
+  "These watches aren't just watches, they are works of art. With the Vegas
+  you get the roulette complication on the watch. Just hit the button on the
+  crown to make it spin. A perfect distraction for any occasion that will vow
+  everyone around.",
+  "A stunning chrono with a very easy to read dial in gray. Powered by the
+  1887 movement.",
+  "A stunning dress watch with a rare white dial/blue markers combo and a
+  coin edge dial.",
+  "When people think Breitling, this is usually the model they think of.
+  A stunning watch that can be used for many tasks.",
+  "This AP is a stunning piece. And these are even rarer in the wild than
+  the base 15400 versions.",
+  "At 44mm this is undoubtfully the men's version of the watch. Just like
+  all Cartiers, this is an elegant watch that adds a touch of class to
+  your wrist."
+]
+
+
+ EMAILS = [
+  'micciullapiero@gmail.com',
+  'monicandreoli@gmail.com',
+  'donaldtrump@hotmail.com',
+  'christianbale@yahoo.com',
+  'timroth@hotmail.com',
+  'batman@yahoo.com',
+  'robin@gmail.com',
+  'miakhalifa@hotmail.com',
+  'jamesbond@yahoo.com',
+  'brucewillis@hotmail.com'
+   ]
+
 # creating materials for watches
  MATERIALS.each do |material|
   Material.create(name: material)
@@ -50,8 +115,8 @@ puts 'Creating 10 users...'
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name::last_name,
-    address: Faker::Address.full_address,
-    email: Faker::Internet.email,
+    address: ADDRESSES.sample,
+    email: EMAILS.sample,
     password: Faker::Internet.password
     )
 
@@ -66,33 +131,97 @@ admin = User.create(
 
 puts "Created #{User.count} users"
 User.all.each do |user|
-  3.times do
-    watch = Watch.create(
-      brand: Faker::FunnyName.two_word_name,
-      price: rand(100..5000),
-      description: Faker::Restaurant.description,
-      address: ADDRESSES.sample,
-      material: Material.all.sample,
-      user: user
-      )
-    file = URI.open('https://source.unsplash.com/1600x900/?watch,men')
-    watch.photos.attach(io: file, filename: "#{watch.brand}.jpg", content_type: 'image/jpg')
+  watch = Watch.new
+  watch.brand = BRANDS.sample
+  watch.price = rand(700..6000)
+  watch.description = DESCRIPTIONS.sample
+  watch.address = ADDRESSES.sample
+  watch.material = Material.all.sample
+  watch.user = user
+  watch.photos.attach(io: File.open(File.join(Rails.root,'app','assets','images', "#{watch.brand}1.jpg")), filename: "#{watch.brand}1.jpg")
+  watch.photos.attach(io: File.open(File.join(Rails.root,'app','assets','images', "#{watch.brand}2.jpg")), filename: "#{watch.brand}2.jpg")
+  watch.photos.attach(io: File.open(File.join(Rails.root,'app','assets','images', "#{watch.brand}3.jpg")), filename: "#{watch.brand}3.jpg")
+  watch.save
   end
   puts "Created #{Watch.count} watches"
-end
+
 
 
 puts "Creating 10 bookings"
-10.times do
-  x = 0
+
+
   Booking.create(
     start_date: Date.today,
     end_date: Date.tomorrow,
-    watch_id: (Watch.last.id - x),
+    watch_id: Watch.last.id,
     user_id: (User.last.id)
     )
-  x += 1
-end
+
+  Booking.create(
+    start_date: Date.today + 1,
+    end_date: Date.tomorrow + 3,
+    watch_id: Watch.last.id - 1,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.today + 3,
+    end_date: Date.tomorrow + 7,
+    watch_id: Watch.last.id - 2,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.today + 2,
+    end_date: Date.tomorrow + 10,
+    watch_id: Watch.last.id - 3,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.today + 4,
+    end_date: Date.tomorrow + 13,
+    watch_id: Watch.last.id - 4,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.yesterday - 20,
+    end_date: Date.tomorrow - 10,
+    watch_id: Watch.last.id - 5,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.yesterday - 18,
+    end_date: Date.tomorrow - 9,
+    watch_id: Watch.last.id - 6,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.yesterday - 16,
+    end_date: Date.tomorrow - 7,
+    watch_id: Watch.last.id - 7,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.yesterday - 13,
+    end_date: Date.tomorrow - 5,
+    watch_id: Watch.last.id - 8,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.yesterday - 10,
+    end_date: Date.tomorrow - 2,
+    watch_id: Watch.last.id - 9,
+    user_id: (User.last.id)
+    )
+
+
+
 
 puts "Created #{Booking.count} bookings"
 
