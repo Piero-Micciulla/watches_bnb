@@ -9,6 +9,8 @@ class WatchesController < ApplicationController
       {
         lat: watch.latitude,
         lng: watch.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { watch: watch }),
+        image_url: helpers.asset_url('map_logo_2.jpg')
       }
     end
   end
@@ -18,6 +20,7 @@ class WatchesController < ApplicationController
     @markers = {
       lat: @watch.latitude,
       lng: @watch.longitude,
+      image_url: helpers.asset_url('map_logo_2.jpg')
     }
   end
 
