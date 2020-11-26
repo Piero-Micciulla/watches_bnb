@@ -3,7 +3,11 @@ class WatchesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @watches = Watch.all
+    if params[:query].present?
+      @watches = Watch.global_search(params[:query])
+    else
+      @watches = Watch.all
+    end
 
     @markers = @watches.geocoded.map do |watch|
       {
