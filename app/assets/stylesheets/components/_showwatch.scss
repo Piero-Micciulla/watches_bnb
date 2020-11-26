@@ -16,44 +16,10 @@
 
 }
 
-
-.show-title{
-  color: black;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.col-md-4 {
-  background-size: cover;
-  margin: center;
-  border-radius: 10px;
-  padding-top: 20px;
-
-}
-
-#watch-card{
-  height: 100%;
-}
-
-.col-md-8 {
-  font-family: "Raleway", sans-serif;
-}
-
-.show-watch{
-  display: flex;
-  justify-content: space-evenly;
-  position: absolute;
-  top: 160px;
-  left: 30px;
-  right: 20px;
-
-}
-
 .show-watch-body {
   background-image: image-url("show.jpg");
   background-size: cover;
   background-position: center;
-  height: 750px;
 }
 
 .card-body{
@@ -61,28 +27,6 @@
   height: 100%;
 }
 
-.display-top{
-  display: flex;
-  justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.display-bottom{
-  display: flex;
-  justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 10px;
-  align-items: flex-end;
-}
-
-.correct-display{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  padding-bottom: 40px;
-}
 
 .book-btn{
   border-radius: 5px;
@@ -90,7 +34,7 @@
 
 .show-card-watches {
   height: 70%;
-  width: 60%;
+  margin-bottom: 50px;
 }
 
 

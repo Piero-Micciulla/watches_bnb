@@ -37,91 +37,62 @@
 <div class="request-booking">
   <div class = "request-to-book"><h1> Request to book</h1></div>
 
-  <div class="d-flex">
-  <div class="dates-picker">
-    <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-      <h7>Pick your dates </h7>
+ <div class="show-watch-body">
+  <div id="map-container" style="width:100%; padding-top: 45px; padding-left: 40px; margin-right: 0">
 
+      <div class="show-card-watches d-flex" style="margin-right:10px">
 
-      <%= simple_form_for :search, method: "get" do |f| %>
-      <%= f.input :pick_on, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :return_on, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.button :submit, "Book now", class: "date-button" %>
-      <% end %>
-    </div>
-  </div>
-  <div class = "booking-info">
-    <p class ="booking-brand"> <%= @watch.brand %> </p>
-    <p > <%= @watch.description %> </p>
-  </div>
-</div>
-
-<div class = "booking-pay">
-  <p> Pay now!</p>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 ">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              Payment Details
-            </h3>
-            <div class="checkbox pull-right">
-              <label>
-                <input type="checkbox" />
-                Remember
-              </label>
-            </div>
-          </div>
-          <div class="panel-body">
-            <form role="form">
-              <div class="form-group">
-                <label for="cardNumber">
-                CARD NUMBER</label>
-                <div class="input-group">
-                  <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
-                  required autofocus />
-                  <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-7 col-md-7">
-                  <div class="form-group">
-                    <label for="expityMonth">
-                    EXPIRY DATE</label>
-                    <div class="col-xs-6 col-lg-6 pl-ziro">
-                      <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
-                    </div>
-                    <div class="col-xs-6 col-lg-6 pl-ziro">
-                      <input type="text" class="form-control" id="expityYear" placeholder="YY" required /></div>
-                    </div>
-                  </div>
-                  <div class="col-xs-5 col-md-5 pull-right">
-                    <div class="form-group">
-                      <label for="cvCode">
-                      CV CODE</label>
-                      <input type="password" class="form-control" id="cvCode" placeholder="CV" required />
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <ul class="nav nav-pills nav-stacked">
-              <a href="http://www.jquery2dotnet.com" class="date-button" role="button"><%= @watch.price %> Final Payment</a>
-            </li>
-          </ul>
-          <br/>
-          <a href="http://www.jquery2dotnet.com" class="btn btn-success btn-lg btn-block" role="button">Pay</a>
+        <div class="card-image-index col-4" style="background-image: url(<%= cl_image_path(@watch.photos.first.key) %>); background-position: center;">
         </div>
+
+        <div class="card-body-info col-8">
+          <div class="card-body-index">
+            <div class="title-and-like d-flex justify-content-between">
+              <h4 class="card-index-title"><strong><%= @watch.brand %></strong></h4>
+              <i class="far fa-heart active" id="not-liked"></i>
+              <i class="fas fa-heart inactive" id="liked"></i>
+            </div>
+            <h5 class="card-index-description"><%= @watch.description %></h5>
+          </div>
+          <div class="card-index-booking d-flex justify-content-between">
+            <div>
+              <h4 class="index-price"><strong>€ <%= @watch.price %> per day</strong></h4>
+              <div class="stars-index d-flex">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <p class="note-text">Prices may vary depending on selected date </p>
+            </div>
+          </div>
+
+          <div class="dates-picker">
+            <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+              <h7><strong>Pick your dates</strong></h7>
+
+
+              <%= simple_form_for [@watch, @booking] do |f| %>
+              <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+              <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+              <%= f.button :submit, "Book now", class: "date-button" %>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+
+
+
       </div>
-    </div>
 
-
+    <div id="map"
+          class="col-4"
+           style="height: 80vh; position: sticky; top: 0; right: 0; border: none;"
+           data-markers="<%= @markers.to_json %>"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
   </div>
 </div>
-</div>
-
-
 
