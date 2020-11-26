@@ -32,8 +32,6 @@
       </div>
   </div>
 
-
-
 <div class="index-page">
 
   <div id="map-container">
@@ -44,9 +42,11 @@
       <div class="cards-index-container">
         <% @watches.each do |watch| %>
 
+
         <%= render 'card', watch: watch %>
         <% end %>
       </div>
+
     </div>
 
     <div id="map"
