@@ -9,6 +9,7 @@ require "open-uri"
 #   Character.create(name: 'Luke', movie: movies.first)
 Watch.destroy_all
 User.destroy_all
+Material.destroy_all
 
  ADDRESSES = [
 'Via del Correggio 1, 63074 San Benedetto del Tronto',
@@ -16,6 +17,29 @@ User.destroy_all
 'Charley Tooropgracht 843, 1112 Diemen',
 'Hovendaal 91, 9660 Brakel'
  ]
+
+ MATERIALS = [
+  'stainless steel',
+  'wood',
+  'titanium',
+  'ceramics',
+  'yellow gold',
+  'carbon fiber',
+  'rose gold',
+  'platinum',
+  'scratch-resistant sapphire',
+  'acryilic/plexiglass',
+  'mineral crystal',
+  'bronze',
+  'two-tone',
+  'white gold'
+ ]
+
+# creating materials for watches
+ MATERIALS.each do |material|
+  Material.create(name: material)
+ end
+
 
 5.times do
 Booking.destroy_all
@@ -30,6 +54,7 @@ puts 'Creating 10 users...'
     email: Faker::Internet.email,
     password: Faker::Internet.password
     )
+
 end
 admin = User.create(
   first_name: "camille",
@@ -38,6 +63,7 @@ admin = User.create(
   email: "lewagon@wagon.com",
   password: "123456"
   )
+
 puts "Created #{User.count} users"
 User.all.each do |user|
   3.times do
@@ -46,6 +72,7 @@ User.all.each do |user|
       price: rand(100..5000),
       description: Faker::Restaurant.description,
       address: ADDRESSES.sample,
+      material: Material.all.sample,
       user: user
       )
     file = URI.open('https://source.unsplash.com/1600x900/?watch,men')
