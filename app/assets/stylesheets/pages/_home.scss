@@ -53,3 +53,83 @@ h1,h2,h3,h4,h5,p {
 .searchform a:hover{
   color: #1EDD88;
 }
+
+.titanium {
+  background-image: image-url('titanium.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-left: 20px;
+  margin-right: 10px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 8px 2px rgba(208,208,208,0.2);
+}
+
+.white-gold {
+  background-image: image-url('white-gold.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-left:10px;
+  margin-right: 10px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 8px 2px rgba(208,208,208,0.2);
+}
+
+.bronze {
+  background-image: image-url('bronze.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-left:10px;
+  margin-right:20px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 8px 2px rgba(208,208,208,0.2);
+}
+
+.home-page-categories {
+  padding: 20px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-bottom: 40px;
+  padding-top: 30px;
+  transition: transform 2s;
+  transition-timing-function: ease-in;
+
+}
+
+.home-page-categories h2{
+  color: white;
+}
+
+.watch-display:hover {
+   box-shadow: 0px 8px 8px 2px rgba(170,170,170,0.2);
+   cursor: pointer;
+    transform: scale(1.02);
+}
+
+.fa-home.home-search-bar {
+  padding-top: 10px;
+}
+
+.become-a-user-prompt-photo {
+  background-image: image-url('new-user.jpg');
+  background-size: cover;
+  height: 60vh;
+  border-radius: 30px;
+  margin: 0px 50px;
+  margin-bottom: 50px;
+  padding: 10% 10%;
+  color: white;
+}
+.fa-arrow-circle-right {
+  padding-top: 8px;
+}
+
+.home-page-text{
+  background: hsla(0, 6%, 58%, 1);
+
+background: linear-gradient(180deg, hsla(0, 6%, 58%, 1) 0%, hsla(0, 6%, 76%, 1) 20%, hsla(0, 0%, 93%, 1) 100%);
+
+background: -moz-linear-gradient(180deg, hsla(0, 6%, 58%, 1) 0%, hsla(0, 6%, 76%, 1) 20%, hsla(0, 0%, 93%, 1) 100%);
+
+background: -webkit-linear-gradient(180deg, hsla(0, 6%, 58%, 1) 0%, hsla(0, 6%, 76%, 1) 20%, hsla(0, 0%, 93%, 1) 100%);
+}
+
