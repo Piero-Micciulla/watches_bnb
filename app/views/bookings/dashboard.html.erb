@@ -62,9 +62,14 @@
             <div class="dashboard-cards">
 
               <% current_user.bookings.each do |booking| %>
+
               <% if booking.end_date > Time.now  %>
                 <div class="card dashboard-card" style="width: 18rem;">
                   <img class="card-img-top" src="..." alt="Card image cap">
+
+                <div class="card dashboard-card" style="background-size: cover;">
+                  <div class="dashboard-card-image" style="background-image: url(<%= cl_image_path(booking.watch.photos.first.key) %>); background-position: center;"></div>
+
                   <div class="card-body">
                     <div class="booked-card-info d-flex justify-content-between">
                       <h5 class="card-title-dashboard"><%= booking.watch.brand %></h5>
@@ -93,12 +98,18 @@
 
           <div class="dashboard-cards">
               <% current_user.bookings.each do |booking| %>
+
               <% if booking.end_date < Time.now  %>
                 <div class="card dashboard-card" style="width: 18rem;">
                   <img class="card-img-top" src="..." alt="Card image cap">
+
+                <div class="card dashboard-card">
+                  <div class="dashboard-card-image" style="background-image: url(<%= cl_image_path(booking.watch.photos.first.key) %>); background-position: center;"></div>
+
                   <div class="card-body">
+
                   <div class="booked-card-info d-flex justify-content-between">
-                      <h5 class="card-title"><%= booking.watch.brand %></h5>
+                      <h4 class="card-title"><%= booking.watch.brand %></h4>
                       <p class="card-text">€ <%= booking.watch.price %></p>
                     </div>
                     <a href="#" class="btn btn-dashboard">See booking details</a>
