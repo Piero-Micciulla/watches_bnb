@@ -45,16 +45,30 @@
 
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <form class="searchform group main">
-      <label for="search-box">
-        <%= link_to watches_path do %>
-          <span class="fa fa-2x fa-search"></span>
-        <% end %>
-      </label>
-      <input type="search" id="search-box" placeholder="Search">
-    </form>
+
+
+<!-- <form action="/watches" accept-charset="UTF-8" method="get" class>
+  <div class = "index-wrap">
+  <input type="text" name="brand" id="brand" class="form-control searchform" placeholder="Find a brand">
+  <input type="text" name="price" id="price" class="form-control searchform" placeholder="Find a price">
+   <i class="fas fa-stopwatch mr-2"> </i>
+</form>
+ -->
+
+
+<%= form_tag watches_path, method: :get do %>
+  <div class = "index-wrap">
+<%= text_field_tag :query,params[:query],class: "form-control",placeholder: "Find a watch"%>
+  <i class="fas fa-stopwatch mr-2"> </i>
+</div>
+<% end %>
+
+
+</div>
   </div>
 </div>
+
+
 
 <!-- Footer -->
 <footer class="page-footer font-small darken-3 footer-dark bg-dark">
@@ -95,6 +109,7 @@
 
 </footer>
 <!-- Footer -->
+
 
 
 
