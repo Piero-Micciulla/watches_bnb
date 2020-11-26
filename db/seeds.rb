@@ -9,6 +9,7 @@ require "open-uri"
 #   Character.create(name: 'Luke', movie: movies.first)
 Watch.destroy_all
 User.destroy_all
+Material.destroy_all
 
  ADDRESSES = [
 'Via del Correggio 1, 63074 San Benedetto del Tronto',
@@ -35,7 +36,7 @@ User.destroy_all
  ]
 
  MATERIALS.each do |material|
-  Material.new(name: material)
+  Material.create(name: material)
  end
 
 5.times do
@@ -67,7 +68,7 @@ User.all.each do |user|
       price: rand(100..5000),
       description: Faker::Restaurant.description,
       address: ADDRESSES.sample,
-      material: MATERIAL.sample,
+      material: Material.all.sample,
       user: user
       )
     file = URI.open('https://source.unsplash.com/1600x900/?watch,men')
