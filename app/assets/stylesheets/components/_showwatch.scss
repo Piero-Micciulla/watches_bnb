@@ -87,3 +87,22 @@
 .book-btn{
   border-radius: 5px;
 }
+
+.show-card-watches {
+  height: 70%;
+  width: 60%;
+}
+
+
+.far.fa-heart:hover {
+  color: #79C3BD;
+  cursor: pointer;
+}
+
+.inactive {
+  display: none;
+}
+
+fas.fa-heart.active {
+  color: #79C3BD;
+}
