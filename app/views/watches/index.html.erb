@@ -35,21 +35,26 @@
 
 <div class="index-page">
 
-  <div class="page-header">
-    <h1>Our <strong>watches</strong></h1>
-  </div>
   <div id="map-container">
-    <div class="cards-index-container">
-      <% @watches.each do |watch| %>
+    <div class="watch-card-display col-8">
+      <div class="page-header">
+        <h1>Our <strong>watches</strong></h1>
+      </div>
+      <div class="cards-index-container">
+        <% @watches.each do |watch| %>
 
-      <%= render 'card', watch: watch %>
-      <% end %>
+        <%= render 'card', watch: watch %>
+        <% end %>
+      </div>
     </div>
+
     <div id="map"
-         style="width: 35vw; height: 100vh;"
+         class="col-4"
+         style="height: 100vh;"
          data-markers="<%= @markers.to_json %>"
          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+
   </div>
 </div>
 
