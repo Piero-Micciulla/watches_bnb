@@ -9,18 +9,29 @@ const buildMap = (mapElement) => {
 };
 
 const addMarkersToMap = (map, markers) => {
-  markers.forEach((marker) => {
+  if (markers.length == undefined) {
+    new mapboxgl.Marker()
+      .setLngLat([ markers.lng, markers.lat ])
+      .addTo(map);
+  } else {
+    markers.forEach((marker) => {
     new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
       .addTo(map);
   });
+  }
+
 };
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
-};
+  if (markers.length == undefined) {
+    bounds.extend([ markers.lng, markers.lat ]);
+    map.fitBounds(bounds, { padding: 70, maxZoom: 15 })
+  } else {
+    markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+    map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+}};
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');

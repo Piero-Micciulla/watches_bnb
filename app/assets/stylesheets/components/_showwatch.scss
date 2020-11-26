@@ -3,7 +3,6 @@
   opacity: 0.95;
   height: 360px;
   border-radius: 20px;
-  margin-top: 30px;
   border-style: solid;
   border-color: #1111;
 
@@ -45,14 +44,16 @@
   justify-content: space-evenly;
   position: absolute;
   top: 160px;
-  left: 80px;
+  left: 30px;
+  right: 20px;
+
 }
 
 .show-watch-body {
   background-image: image-url("show.jpg");
   background-size: cover;
   background-position: center;
-  height: 650px;
+  height: 750px;
 }
 
 .card-body{
