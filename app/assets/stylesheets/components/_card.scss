@@ -106,6 +106,15 @@ padding: 10px;
   border-radius: 5px;
 }
 
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
 .index-page{
   background-image: image-url("background8.jpg");
   background-position: center;
