@@ -35,9 +35,11 @@ Material.destroy_all
   'white gold'
  ]
 
+# creating materials for watches
  MATERIALS.each do |material|
   Material.create(name: material)
  end
+
 
 5.times do
 Booking.destroy_all
