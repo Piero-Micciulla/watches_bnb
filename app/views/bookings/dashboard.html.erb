@@ -52,6 +52,9 @@
           <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My Watches</a>
         </li>
         <li class="nav-item" role="presentation">
+          <%= link_to "New Watch", new_watch_path , class: "nav-link" %>
+        </li>
+        <li class="nav-item" role="presentation">
           <a class="nav-link" id="menu1" data-toggle="tab" href="#menu1" role="tab" aria-controls="profile" aria-selected="false"><i class="fas fa-heart"></i></a>
         </li>
       </ul>
@@ -70,7 +73,8 @@
               <% current_user.bookings.each do |booking| %>
               <% if booking.end_date > Time.now  %>
                 <div class="card dashboard-card" style="width: 18rem;">
-                  <img class="card-img-top" src="..." alt="Card image cap">
+                  <%= cl_image_tag(booking.watch.photos.first.key, :alt => "rss feed", class: "card-img-top" ) %>
+
                   <div class="card-body">
                     <div class="booked-card-info d-flex justify-content-between">
                       <h5 class="card-title-dashboard"><%= booking.watch.brand %></h5>
@@ -101,7 +105,7 @@
               <% current_user.bookings.each do |booking| %>
               <% if booking.end_date < Time.now  %>
                 <div class="card dashboard-card" style="width: 18rem;">
-                  <img class="card-img-top" src="..." alt="Card image cap">
+                  <%= cl_image_tag(booking.watch.photos.last.key, :alt => "rss feed", class: "card-img-top" ) %>
                   <div class="card-body">
                   <div class="booked-card-info d-flex justify-content-between">
                       <h5 class="card-title"><%= booking.watch.brand %></h5>
@@ -120,12 +124,11 @@
           <div class="my-watch-cards">
           <% current_user.watches.each do |watch| %>
             <div class="my-watch-card d-flex">
+              <%= cl_image_tag(watch.photos.last.key, :alt => "rss feed", class: "my-watch-image" ) %>
 
               <div class='my-watch-info'>
 
-                <% watch.photos.each do |photo| %>
-                  <div class="my-watch-image"style="url(<%= cl_image_path(photo.key) %>)"></div>
-                <% end %>
+
 
                 <h2><%= watch.brand %></h2>
                 <p><strong>€ <%= watch.price %></strong></p>

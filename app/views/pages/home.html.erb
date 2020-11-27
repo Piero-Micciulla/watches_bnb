@@ -12,10 +12,8 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <div class="items-menu-bar d-flex align-items-center">
-          <%= link_to dashboard_path do %>
-            <i class="fas fa-home fa-2x"></i>
-          <% end %>
-          <div class="dropdown dashboard-home">
+
+          <div class="dropleft dashboard-home">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             </button>
@@ -25,8 +23,12 @@
               <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
                 <i class="fas fa-sign-out-alt"></i>
               <% end %>
-            </div>
           </div>
+          <%= link_to dashboard_path do %>
+              <i class="fas fa-home fa-2x"></i>
+            <% end %>
+        </div>
+
         </div>
       <% else %>
         <li class="nav-item">
@@ -80,20 +82,13 @@
     <div class="row">
 
       <!-- Grid column -->
-      <div class="col-md-12 py-5">
-        <div class="flex-center">
-
-          <!-- Facebook -->
-          <a class="fb-ic">
-            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!--Instagram-->
-          <a class="ins-ic">
-            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-
-        </div>
-      </div>
+      <ul class="socials">
+        <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+      </ul>
       <!-- Grid column -->
 
     </div>
