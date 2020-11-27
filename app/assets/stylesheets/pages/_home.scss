@@ -124,6 +124,10 @@ h1,h2,h3,h4,h5,p {
   padding-top: 8px;
 }
 
+.fa-arrow-circle-right:hover {
+ color: #AA9F9E;
+}
+
 .home-page-text{
   background: hsla(0, 6%, 58%, 1);
 
@@ -134,3 +138,15 @@ background: -moz-linear-gradient(180deg, hsla(0, 6%, 58%, 1) 0%, hsla(0, 6%, 76%
 background: -webkit-linear-gradient(180deg, hsla(0, 6%, 58%, 1) 0%, hsla(0, 6%, 76%, 1) 20%, hsla(0, 0%, 93%, 1) 100%);
 }
 
+.watch-display a{
+  text-decoration: none;
+}
+
+.watch-display a:hover {
+  color: #AA9F9E;
+}
+
+.watch-display .fa-arrow-circle-right {
+  padding-top: 15px;
+  padding-left: 5px;
+}
