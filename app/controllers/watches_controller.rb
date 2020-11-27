@@ -66,7 +66,7 @@ class WatchesController < ApplicationController
   private
 
   def strong_params
-    params.require(:watch).permit(:id, :description,:address, :price, :photos, :brand, :start_date, :end_date, :material_id)
+    params.require(:watch).permit(:id, :description, :address, :price, :brand, :start_date, :end_date, :material_id, photos: [])
   end
 
   def find_watch
