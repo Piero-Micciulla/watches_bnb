@@ -1,6 +1,7 @@
 const likingUnliking = () => {
   const liked = document.querySelector("#liked");
   const notLiked = document.querySelector("#not-liked");
+  if (liked ){
   notLiked.addEventListener("click", (event) => {
     notLiked.classList.add("inactive");
     notLiked.classList.remove("active");
@@ -15,5 +16,5 @@ const likingUnliking = () => {
     liked.classList.remove("active");
   });
 }
-
+}
 export {likingUnliking};

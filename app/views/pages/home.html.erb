@@ -9,20 +9,23 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
-         <div class="items-menu-bar d-flex align-items-center">
-          <%= link_to dashboard_path do %>
-            <i class="fas fa-home fa-2x" style="padding-top:10px"></i>
-          <% end %>
+
+        <div class="items-menu-bar d-flex align-items-center">
+            <%= link_to dashboard_path do %>
+                <i class="fas fa-home fa-2x"></i>
+              <% end %>
+          </div>
+
           <div class="dropdown dashboard-home">
-            <button class="btn btn-secondary dropdown-toggle user-icon" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle user-icon" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> </button>
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="#">Payment Info</a>
               <a class="dropdown-item" href="#">Account Setting</a>
               <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
                 <i class="fas fa-sign-out-alt"></i>
               <% end %>
+
             </div>
           </div>
         </div>
