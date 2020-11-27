@@ -12,11 +12,62 @@ User.destroy_all
 Material.destroy_all
 
  ADDRESSES = [
-'Via del Correggio 1, 63074 San Benedetto del Tronto',
 'Maarten Lutherweg 122, 1185 Amstelveen',
 'Charley Tooropgracht 843, 1112 Diemen',
-'Hovendaal 91, 9660 Brakel'
+'Hovendaal 91, 9660 Brakel',
+'Kerkstraat 273, 1017 Amsterdam',
+'Leidseplein 15, 1017  Amsterdam',
+'Van Breestraat 69, 1071 Amsterdam',
+'Tweede Jan van der Heijdenstraat 2, 1073 Amsterdam',
+'Lindengracht 23, 1015 Amsterdam'
+'Meeuwenlaan 145, 1021 Amsterdam'
+'J.J. Cremerplein 45, 1054 Amsterdam'
  ]
+
+ BRANDS = [
+  'Rolex GMT Master',
+  'Jeager leCoultre Grand Reverso Duo'
+  'Hublot Big Bang'
+  'Panerai PAM111 Luminor'
+  'Frank Müller Vegas'
+  'Tag Heuer Carrera'
+  'Omega Constellation'
+  'Breitling Navitimer 01'
+  'Audemars Piguet Royal Oak Chrono'
+  'Cartier Ballon Bleu'
+]
+
+DESCRIPTION = [
+  "Rolex is a classic staple of any luxury watch collection. The GMT Master
+  and the Submariner are some of the most popular watches Rolex sells.
+  This is the "'Pepsi'" version. It has a unique blue/red theme to the dial
+  and the GMT hand, which helps add a touch of sportiness to the watch.",
+  "This is a very unique watch. It actually comes with two sides(a black dial
+  and a white dial), all you have to do is flip it and you get to experience
+  an all new watch.",
+  "A great looking sporty 44mm chronograph that adds a touch of class thanks
+  to the rose gold case and accents.",
+  "This is a classic Panerai. It's a 44mm watch that really brings attention
+  to your wrist. The crown guard really helps tell everyone who looks that
+  the watch is special and the sandwich dial is a simple yet classy feature that
+  separates it from the other watches on the market today. And like most PAMs,
+  it has a very easy strap changing mechanism.",
+  "These watches aren't just watches, they are works of art. With the Vegas
+  you get the roulette complication on the watch. Just hit the button on the
+  crown to make it spin. A perfect distraction for any occasion that will vow
+  everyone around.",
+  "A stunning chrono with a very easy to read dial in gray. Powered by the
+  1887 movement.",
+  "A stunning dress watch with a rare white dial/blue markers combo and a
+  coin edge dial.",
+  "When people think Breitling, this is usually the model they think of.
+  A stunning watch that can be used for many tasks.",
+  "This AP is a stunning piece. And these are even rarer in the wild than
+  the base 15400 versions.",
+  "At 44mm this is undoubtfully the men's version of the watch. Just like
+  all Cartiers, this is an elegant watch that adds a touch of class to
+  your wrist."
+]
 
  MATERIALS = [
   'stainless steel',
