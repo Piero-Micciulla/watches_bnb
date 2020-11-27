@@ -53,8 +53,8 @@ padding: 10px;
 .card-watches{
   background-color: white;
   background-position: 50% 10%;
-  width: auto;
-  border-radius: 10px;
+  width: 100%;
+  border-radius: 20px;
   text-align: center;
   margin: 10px;
   margin-left: 15px;
@@ -171,4 +171,13 @@ padding: 10px;
 
 .fa-star{
   color: #79C3BD;
+}
+
+.card-index-material {
+  background-color: #81C6C1;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+  width: auto;
 }
