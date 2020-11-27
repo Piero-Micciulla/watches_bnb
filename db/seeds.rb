@@ -26,7 +26,7 @@ ADDRESSES = [
 
  BRANDS = [
   'Rolex',
-  'Jaeger leCoutre',
+  'Jaeger LeCoutre',
   'Hublot',
   'Panerai',
   'Frank Müller',
@@ -111,15 +111,14 @@ Booking.destroy_all
 end
 
 puts 'Creating 10 users...'
-10.times do
+EMAILS.each do |email|
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name::last_name,
     address: ADDRESSES.sample,
-    email: EMAILS.sample,
+    email: email,
     password: Faker::Internet.password
     )
-
 end
 admin = User.create(
   first_name: "camille",
@@ -138,9 +137,9 @@ User.all.each do |user|
   watch.address = ADDRESSES.sample
   watch.material = Material.all.sample
   watch.user = user
-  watch.photos.attach(io: File.open(File.join(Rails.root,'app','assets','images', "#{watch.brand}1.jpg")), filename: "#{watch.brand}1.jpg")
-  watch.photos.attach(io: File.open(File.join(Rails.root,'app','assets','images', "#{watch.brand}2.jpg")), filename: "#{watch.brand}2.jpg")
-  watch.photos.attach(io: File.open(File.join(Rails.root,'app','assets','images', "#{watch.brand}3.jpg")), filename: "#{watch.brand}3.jpg")
+  watch.photos.attach(io: File.open(File.join(Rails.root,'app','assets','images', "#{watch.brand.gsub(" ","_")}1.jpg")), filename: "#{watch.brand.gsub(" ","_")}1.jpg")
+  watch.photos.attach(io: File.open(File.join(Rails.root,'app','assets','images', "#{watch.brand.gsub(" ","_")}2.jpg")), filename: "#{watch.brand.gsub(" ","_")}2.jpg")
+  watch.photos.attach(io: File.open(File.join(Rails.root,'app','assets','images', "#{watch.brand.gsub(" ","_")}3.jpg")), filename: "#{watch.brand.gsub(" ","_")}3.jpg")
   watch.save
   end
   puts "Created #{Watch.count} watches"
