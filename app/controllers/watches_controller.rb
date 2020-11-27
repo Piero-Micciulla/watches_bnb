@@ -20,7 +20,6 @@ class WatchesController < ApplicationController
   end
 
   def show
-
     @markers = {
       lat: @watch.latitude,
       lng: @watch.longitude,
@@ -31,13 +30,13 @@ class WatchesController < ApplicationController
   def new
     @watch = Watch.new
     @disable_footer = true
+    @materials = Material.all
   end
 
   def create
     @watch = Watch.new(strong_params)
     @watch.user = current_user
     @watch.user.address = current_user.address
-    raise
     if @watch.save
       redirect_to dashboard_path
     else
@@ -67,7 +66,7 @@ class WatchesController < ApplicationController
   private
 
   def strong_params
-    params.require(:watch).permit(:id, :description, :price, :photos, :brand, :start_date, :end_date)
+    params.require(:watch).permit(:id, :description,:address, :price, :photos, :brand, :start_date, :end_date, :material_id)
   end
 
   def find_watch
