@@ -15,6 +15,11 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @watch = Watch.find(params[:watch_id])
+    @marker = [{
+      lat: @watch.user.latitude,
+      lng: @watch.user.longitude,
+      image_url: helpers.asset_url('map_logo_2.jpg')
+    }]
   end
 
   def create

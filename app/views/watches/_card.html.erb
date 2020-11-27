@@ -1,8 +1,9 @@
 
 <div class="card-watches d-flex">
-
-  <div class="card-image-index col-4" style="background-image: url(<%= cl_image_path(watch.photos.first.key) %>); background-position: center;">
+  <% if watch.photos.attached? %>
+    <div class="card-image-index col-4" style="background-image: url(<%= cl_image_path(watch.photos.first.key) %>); background-position: center;">
   </div>
+  <% end %>
 
   <div class="card-body-info col-8">
     <div class="card-body-index">
