@@ -16,12 +16,6 @@
           <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My Watches</a>
         </li>
         <li class="nav-item" role="presentation">
-          <%= link_to "New Watch", new_watch_path , class: "nav-link" %>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a class="nav-link" id="menu1" data-toggle="tab" href="#menu1" role="tab" aria-controls="profile" aria-selected="false"><i class="fas fa-heart"></i></a>
-        </li>
-        <li class="nav-item" role="presentation">
           <a class="nav-link" id="menu1" data-toggle="tab" href="#menu2" role="tab" aria-controls="profile" aria-selected="false"><i class="fas fa-envelope top"></i></a>
         </li>
       </ul>
@@ -90,16 +84,25 @@
         </div>
 
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+        <%= link_to new_watch_path do %>
+          <div class="add d-flex flex-wrap align-items-center">
+            <i class="fas fa-plus"></i>
+            <p class="add-text"> Add a new watch </p>
+          </div>
+        <% end %>
+
           <div class="my-watch-cards">
           <% current_user.watches.each do |watch| %>
             <div class="my-watch-card d-flex">
-              
+   
               <% if watch.photos.attached? %>
                 <%= cl_image_tag(watch.photos.last.key, :alt => "rss feed", class: "my-watch-image" ) %>
               <% else %>
                 <%= image_tag("logo.png", :alt => "rss feed", style: "width: 165px; height: 305px;") %>
 
               <% end %>
+
 
               <div class='my-watch-info'>
 
@@ -108,6 +111,27 @@
                 <h2><%= watch.brand %></h2>
                 <p><strong>€ <%= watch.price %></strong></p>
                 <p><%= watch.description %></p>
+
+                <a class="btn btn-primary btn-my-bookings" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  See more info on your bookings
+                </a>
+
+                <div class="collapse" id="collapseExample">
+                  <div class="card card-body all-my-watch-bookings">
+                    <% watch.bookings.each do |booking| %>
+                      <div class="my-watch-booking">
+                        <div class="my-watch-booking-renter">
+                          <h5>Your renter is <%= "#{booking.user.first_name} #{booking.user.last_name}"%></h5>
+                        </div>
+                        <div class="my-watch-booking-info">
+                          <p><strong>For <%= ((booking.end_date.to_time.to_i - booking.start_date.to_time.to_i) / (60*60*24)) %> day(s)</strong></p>
+                          <p><strong>From <%= booking.start_date %> to <%= booking.end_date %></strong></p>
+                          <p>€ <%= booking.watch.price %> per day</p>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
 
               </div>
 

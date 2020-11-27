@@ -13,4 +13,8 @@ class Booking < ApplicationRecord
       end
     end
   end
+
+  def number_of_days
+
+  end
 end

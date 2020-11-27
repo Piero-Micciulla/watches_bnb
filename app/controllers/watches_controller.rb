@@ -56,7 +56,7 @@ class WatchesController < ApplicationController
     @watch.user = current_user
     @watch.user.address = current_user.address
     if @watch.save
-      redirect_to dashboard_path
+      redirect_to dashboard_path(anchor: "profile")
     else
       render :new
     end
@@ -70,7 +70,7 @@ class WatchesController < ApplicationController
     @watch
     if @watch.update(strong_params)
       flash[:notice] = "Created"
-      redirect_to dashboard_path
+      redirect_to dashboard_path(anchor: "profile")
     else
       render :new
     end
