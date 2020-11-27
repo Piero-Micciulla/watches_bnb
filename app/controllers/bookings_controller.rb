@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
    before_action :authenticate_user!
 
   def dashboard
+    @user_bookings = current_user.bookings
     @bookings = Booking.all
     @disable_navbar = true
   end
@@ -14,13 +15,15 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @watch = Watch.find(params[:watch_id])
-
   end
 
   def create
     @booking = Booking.new(strong_params)
+    @watch = Watch.find(params[:watch_id])
+    @booking.user = current_user
+    @booking.watch = @watch
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -48,7 +51,7 @@ class BookingsController < ApplicationController
   end
 
   def strong_params
-    params.require(:watch).permit(:id, :description, :price)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 
 end

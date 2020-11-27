@@ -11,7 +11,7 @@ Watch.destroy_all
 User.destroy_all
 Material.destroy_all
 
- ADDRESSES = [
+ADDRESSES = [
 'Maarten Lutherweg 122, 1185 Amstelveen',
 'Charley Tooropgracht 843, 1112 Diemen',
 'Hovendaal 91, 9660 Brakel',
@@ -19,25 +19,42 @@ Material.destroy_all
 'Leidseplein 15, 1017  Amsterdam',
 'Van Breestraat 69, 1071 Amsterdam',
 'Tweede Jan van der Heijdenstraat 2, 1073 Amsterdam',
-'Lindengracht 23, 1015 Amsterdam'
-'Meeuwenlaan 145, 1021 Amsterdam'
+'Lindengracht 23, 1015 Amsterdam',
+'Meeuwenlaan 145, 1021 Amsterdam',
 'J.J. Cremerplein 45, 1054 Amsterdam'
  ]
 
  BRANDS = [
-  'Rolex GMT Master',
-  'Jeager leCoultre Grand Reverso Duo'
-  'Hublot Big Bang'
-  'Panerai PAM111 Luminor'
-  'Frank Müller Vegas'
-  'Tag Heuer Carrera'
-  'Omega Constellation'
-  'Breitling Navitimer 01'
-  'Audemars Piguet Royal Oak Chrono'
-  'Cartier Ballon Bleu'
+  'Rolex',
+  'Jaeger leCoutre',
+  'Hublot',
+  'Panerai',
+  'Frank Müller',
+  'Tag Heuer',
+  'Omega',
+  'Breitling',
+  'Audemars Piguet',
+  'Cartier'
 ]
 
-DESCRIPTION = [
+ MATERIALS = [
+  'stainless steel',
+  'wood',
+  'titanium',
+  'ceramics',
+  'yellow gold',
+  'carbon fiber',
+  'rose gold',
+  'platinum',
+  'scratch-resistant sapphire',
+  'acryilic/plexiglass',
+  'mineral crystal',
+  'bronze',
+  'two-tone',
+  'white gold'
+ ]
+
+ DESCRIPTIONS = [
   "Rolex is a classic staple of any luxury watch collection. The GMT Master
   and the Submariner are some of the most popular watches Rolex sells.
   This is the "'Pepsi'" version. It has a unique blue/red theme to the dial
@@ -69,22 +86,19 @@ DESCRIPTION = [
   your wrist."
 ]
 
- MATERIALS = [
-  'stainless steel',
-  'wood',
-  'titanium',
-  'ceramics',
-  'yellow gold',
-  'carbon fiber',
-  'rose gold',
-  'platinum',
-  'scratch-resistant sapphire',
-  'acryilic/plexiglass',
-  'mineral crystal',
-  'bronze',
-  'two-tone',
-  'white gold'
- ]
+
+ EMAILS = [
+  'micciullapiero@gmail.com',
+  'monicandreoli@gmail.com',
+  'donaldtrump@hotmail.com',
+  'christianbale@yahoo.com',
+  'timroth@hotmail.com',
+  'batman@yahoo.com',
+  'robin@gmail.com',
+  'miakhalifa@hotmail.com',
+  'jamesbond@yahoo.com',
+  'brucewillis@hotmail.com'
+   ]
 
 # creating materials for watches
  MATERIALS.each do |material|
@@ -101,8 +115,8 @@ puts 'Creating 10 users...'
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name::last_name,
-    address: Faker::Address.full_address,
-    email: Faker::Internet.email,
+    address: ADDRESSES.sample,
+    email: EMAILS.sample,
     password: Faker::Internet.password
     )
 
@@ -117,33 +131,97 @@ admin = User.create(
 
 puts "Created #{User.count} users"
 User.all.each do |user|
-  3.times do
-    watch = Watch.create(
-      brand: Faker::FunnyName.two_word_name,
-      price: rand(100..5000),
-      description: Faker::Restaurant.description,
-      address: ADDRESSES.sample,
-      material: Material.all.sample,
-      user: user
-      )
-    file = URI.open('https://source.unsplash.com/1600x900/?watch,men')
-    watch.photos.attach(io: file, filename: "#{watch.brand}.jpg", content_type: 'image/jpg')
+  watch = Watch.new
+  watch.brand = BRANDS.sample
+  watch.price = rand(700..6000)
+  watch.description = DESCRIPTIONS.sample
+  watch.address = ADDRESSES.sample
+  watch.material = Material.all.sample
+  watch.user = user
+  watch.photos.attach(io: File.open(File.join(Rails.root,'app','assets','images', "#{watch.brand}1.jpg")), filename: "#{watch.brand}1.jpg")
+  watch.photos.attach(io: File.open(File.join(Rails.root,'app','assets','images', "#{watch.brand}2.jpg")), filename: "#{watch.brand}2.jpg")
+  watch.photos.attach(io: File.open(File.join(Rails.root,'app','assets','images', "#{watch.brand}3.jpg")), filename: "#{watch.brand}3.jpg")
+  watch.save
   end
   puts "Created #{Watch.count} watches"
-end
+
 
 
 puts "Creating 10 bookings"
-10.times do
-  x = 0
+
+
   Booking.create(
     start_date: Date.today,
     end_date: Date.tomorrow,
-    watch_id: (Watch.last.id - x),
+    watch_id: Watch.last.id,
     user_id: (User.last.id)
     )
-  x += 1
-end
+
+  Booking.create(
+    start_date: Date.today + 1,
+    end_date: Date.tomorrow + 3,
+    watch_id: Watch.last.id - 1,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.today + 3,
+    end_date: Date.tomorrow + 7,
+    watch_id: Watch.last.id - 2,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.today + 2,
+    end_date: Date.tomorrow + 10,
+    watch_id: Watch.last.id - 3,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.today + 4,
+    end_date: Date.tomorrow + 13,
+    watch_id: Watch.last.id - 4,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.yesterday - 20,
+    end_date: Date.tomorrow - 10,
+    watch_id: Watch.last.id - 5,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.yesterday - 18,
+    end_date: Date.tomorrow - 9,
+    watch_id: Watch.last.id - 6,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.yesterday - 16,
+    end_date: Date.tomorrow - 7,
+    watch_id: Watch.last.id - 7,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.yesterday - 13,
+    end_date: Date.tomorrow - 5,
+    watch_id: Watch.last.id - 8,
+    user_id: (User.last.id)
+    )
+
+  Booking.create(
+    start_date: Date.yesterday - 10,
+    end_date: Date.tomorrow - 2,
+    watch_id: Watch.last.id - 9,
+    user_id: (User.last.id)
+    )
+
+
+
 
 puts "Created #{Booking.count} bookings"
 
