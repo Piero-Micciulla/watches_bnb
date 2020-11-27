@@ -9,17 +9,23 @@
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs ">
         <div class = "hallo">
-        <%= f.input :email,
+        <div class = "input-form"><%= f.input :email,
                     required: false,
                     autofocus: true,
                     input_html: { autocomplete: "email" } %>
+        </div>
+
         <%= f.input :password,
                     required: false,
                     input_html: { autocomplete: "current-password" } %>
+                <div class ="password-show">
                     <input type="checkbox" onclick="myFunction()"> Show Password
+        </div>
+        <div>
 
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-      </div>
+        </div>
+
       <div class="form-actions">
         <%= f.button :submit, "Log in", class: "btn btn-dark  w-50" %>
       </div>
@@ -28,6 +34,8 @@
          <button type="button" class="btn btn-dark  w-50">Sign up</button>
       </div>
     <% end %>
+    </div>
+  </div>
 
     <script>
       function myFunction() {
@@ -39,6 +47,3 @@
       }
     }
     </script>
-
-  </div>
-</div>

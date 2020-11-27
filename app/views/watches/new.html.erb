@@ -21,19 +21,20 @@
       <%= simple_form_for [@watch] do |f| %>
       <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
       <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-        <label for="formGroupExampleInput2">Price</label>
+       <!--  <label for="formGroupExampleInput2">Price</label>
         <div id= "price-value"></div>
-        <input type="range" min="700" max="6000" value="3250" class="slider" id="myRange">
+        <input type="range" min="700" max="6000" value="3250" class="slider" id="myRange"> -->
+        <%= f.input :price %>
       <%= f.input :brand %>
       <%= f.input :description %>
-
-
+      <%= f.input :material_id, collection: Material.all, value_method: :id,label: "Material", include_blank: false, selected: @watch.material_id %>
       <%= f.input :photos, as: :file, input_html: { multiple: true, name: "post_attachments[photos][]" } %>
-      <%= f.submit "Submit", class: "btn btn-dark  w-25" %>
+        <%= f.submit "Submit", class: "btn btn-dark  w-25" %>
+      <% end %>
 
 
       </div>
-      <% end %>
+
     </div>
 
 
@@ -42,8 +43,8 @@
 </div>
 </div>
 
-<script>
-  const slider = document.getElementById("myRange");
+<!-- <script>
+  const slider = document.getElementById("watch_price");
   let output = document.getElementById("price-value");
 output.innerHTML = slider.value; // Display the default slider value
 
@@ -53,4 +54,4 @@ slider.oninput = function() {
 }
 
 </script>
-
+ -->
