@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-dark bg-dark">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo.png", :class => "style-logo" %>
     <% end %>
 
@@ -7,22 +7,14 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <div class="items-menu-bar d-flex align-items-center">
-
-
-          <div class="dropleft dashboard-home">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
+         <div class="items-menu-bar d-flex align-items-center">
           <%= link_to dashboard_path do %>
-            <i class="fas fa-home fa-2x home-search-bar"></i>
+            <i class="fas fa-home fa-2x" style="padding-top:10px"></i>
           <% end %>
           <div class="dropdown dashboard-home">
             <button class="btn btn-secondary dropdown-toggle user-icon" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -31,21 +23,15 @@
               <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
                 <i class="fas fa-sign-out-alt"></i>
               <% end %>
+            </div>
           </div>
-          <%= link_to dashboard_path do %>
-              <i class="fas fa-home fa-2x"></i>
-            <% end %>
-        </div>
-
         </div>
       <% else %>
-        <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
       <% end %>
-    </ul>
+    </div>
   </div>
-</div>
+
 
 <div class="main-photo-banner">
   <div class="banner-container">
