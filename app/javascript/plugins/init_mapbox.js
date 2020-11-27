@@ -9,6 +9,7 @@ const buildMap = (mapElement) => {
 };
 
 const addMarkersToMap = (map, markers) => {
+  console.log(markers);
   if (markers.length == undefined) {
     const element = document.createElement('div');
     element.className = 'marker';
