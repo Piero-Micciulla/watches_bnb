@@ -13,8 +13,16 @@
       <% if user_signed_in? %>
         <div class="items-menu-bar d-flex align-items-center">
 
+
           <div class="dropleft dashboard-home">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+          <%= link_to dashboard_path do %>
+            <i class="fas fa-home fa-2x home-search-bar"></i>
+          <% end %>
+          <div class="dropdown dashboard-home">
+            <button class="btn btn-secondary dropdown-toggle user-icon" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -45,32 +53,56 @@
       <p>Be on time, in style.</p>
     </div>
 
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" style="color:white;">
+
+
+<!-- <div class="search-bar-home">
+  <form action="/watches" accept-charset="UTF-8" method="get" class>
+    <div class = "index-wrap">
+    <input type="text" name="brand" id="brand" class="form-control searchform" placeholder="Find a brand">
+    <input type="text" name="price" id="price" class="form-control searchform" placeholder="Find a price">
+     <i class="fas fa-stopwatch mr-2"> </i>
+  </form> -->
 
 
 
-<!-- <form action="/watches" accept-charset="UTF-8" method="get" class>
-  <div class = "index-wrap">
-  <input type="text" name="brand" id="brand" class="form-control searchform" placeholder="Find a brand">
-  <input type="text" name="price" id="price" class="form-control searchform" placeholder="Find a price">
-   <i class="fas fa-stopwatch mr-2"> </i>
-</form>
- -->
-
-
-<%= form_tag watches_path, method: :get do %>
-  <div class = "index-wrap">
-<%= text_field_tag :query,params[:query],class: "form-control",placeholder: "Find a watch"%>
-  <i class="fas fa-stopwatch mr-2"> </i>
+  <%= form_tag watches_path, method: :get do %>
+    <div class = "index-wrap search-bar-main">
+  <%= text_field_tag :query,params[:query],class: "form-control search-bar-main",placeholder: "Let's find your watch"%>
+    <i class="fas fa-stopwatch mr-2" style="color:#9D9D9D;"> </i>
+  </div>
+  <% end %>
 </div>
-<% end %>
-
 
 </div>
+
+<div class="home-page-text" style="background-color:#EDEDED;">
+
+  <div class="discovery" style="text-align:center; padding-top: 50px;">
+      <h2>Discover watches near you</h2>
+  </div>
+  <div class="home-page-categories d-flex justify-content-around" style="height: 60vh;">
+      <div class="titanium watch-display col-4">
+        <p style="padding-top: 10px; padding-left: 10px;"><strong>titanium</strong></p>
+      </div>
+
+      <div class="white-gold watch-display col-4">
+        <p style="padding-top: 10px; padding-left: 10px;"><strong>white gold</strong></p>
+      </div>
+
+      <div class="bronze watch-display col-4">
+        <p style="padding-top: 10px; padding-left: 10px;"><strong>bronze</strong></p>
+      </div>
+  </div>
+
+  <div class="home-patch-prompt">
+    <div class=become-a-user-prompt-photo>
+      <h3><strong>Have the perfect offering?</strong></h3>
+      <h3><strong>Become a lender today.</strong></h3>
+      <i class="fas fa-arrow-circle-right fa-2x"></i>
+    </div>
   </div>
 </div>
-
-
 
 <!-- Footer -->
 <footer class="page-footer font-small darken-3 footer-dark bg-dark">
