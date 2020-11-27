@@ -3,10 +3,28 @@ class WatchesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:query].present?
-      @watches = Watch.global_search(params[:query])
-    else
-      @watches = Watch.all
+    @choice_of_watch = params[:query]
+
+    @materials = Material.all
+    @material_name = @materials.map do |material|
+      material.name
+    end
+
+    @watches = Watch.all
+
+    if @choice_of_watch.present?
+      @watches = @watches.global_search(@choice_of_watch)
+    end
+    @watch_material = params[:material]
+
+    if @watch_material.present?
+      @watches = @watches.joins(:material).where(materials: {name: params[:material]})
+    end
+
+    @watch_price = params[:price]
+
+    if @watch_price.present?
+      @watches = @watches.where("price <= ?", params[:price])
     end
 
     @markers = @watches.geocoded.map do |watch|

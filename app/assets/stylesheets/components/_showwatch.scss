@@ -50,3 +50,34 @@
 fas.fa-heart.active {
   color: #79C3BD;
 }
+
+select#material {
+  border: none;
+  color: #C0C0C0;
+  padding: 4px  10px;
+  border-radius: 15px;
+  margin-left: 10px;
+}
+
+select#price {
+  border: none;
+  color: #C0C0C0;
+  padding: 4px  10px;
+  border-radius: 15px;
+  margin-left: 10px;
+}
+
+.btn-refine {
+  background-color: #81C6C1;
+  border: none;
+  border-radius: 15px;
+  margin-left: 10px;
+}
+
+.btn-refine:hover {
+  background-color: #343A41;
+}
+
+.page-header h3{
+  padding-left: 10px;
+}

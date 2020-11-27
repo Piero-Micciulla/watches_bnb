@@ -82,17 +82,34 @@
       <h2>Discover watches near you</h2>
   </div>
   <div class="home-page-categories d-flex justify-content-around" style="height: 60vh;">
-      <div class="titanium watch-display col-4">
+
+    <div class="titanium watch-display col-4">
+      <%= link_to watches_path(:material => "titanium")do %>
+      <div class="link-home d-flex flex-wrap" stlye="width: 100%; height:">
         <p style="padding-top: 10px; padding-left: 10px;"><strong>titanium</strong></p>
+        <i class="fas fa-arrow-circle-right"></i>
       </div>
+      <% end %>
+    </div>
 
-      <div class="white-gold watch-display col-4">
+    <div class="white-gold watch-display col-4">
+      <%= link_to watches_path(:material => "white gold")do %>
+      <div class="link-home d-flex flex-wrap" stlye="width: 100%;">
         <p style="padding-top: 10px; padding-left: 10px;"><strong>white gold</strong></p>
+        <i class="fas fa-arrow-circle-right"></i>
       </div>
+      <% end %>
+    </div>
 
-      <div class="bronze watch-display col-4">
+    <div class="bronze watch-display col-4">
+      <%= link_to watches_path(:material => "bronze")do %>
+      <div class="link-home d-flex flex-wrap" stlye="width: 100%;">
         <p style="padding-top: 10px; padding-left: 10px;"><strong>bronze</strong></p>
+        <i class="fas fa-arrow-circle-right"></i>
       </div>
+      <% end %>
+    </div>
+
   </div>
 
   <div class="home-patch-prompt">
