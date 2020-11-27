@@ -113,6 +113,11 @@ a#home-tab.active {
   color: white;
 }
 
+.nav-link {
+  background-color: none;
+  color: white;
+}
+
 a#profile-tab.active {
   background-color: #232323;
   color: white;
@@ -142,7 +147,7 @@ a#profile-tab:hover {
   margin-bottom: 10px;
 }
 
-.fa-envelope:hover {
+.lender-info-card .fa-envelope:hover {
   color: #79C3BD;
 
 }
@@ -206,6 +211,10 @@ p.lender-info {
   grid-template-columns: 1fr;
 }
 
+.my-watch-image{
+  margin-right: 40px;
+}
+
 .my-watch-card {
   border-bottom: 1px solid #DEE2E7;
   margin-bottom: 30px;
@@ -251,4 +260,8 @@ p.lender-info {
 
 .booked-card-info h4 {
   color: black;
+}
+
+.nav-item:hover{
+
 }

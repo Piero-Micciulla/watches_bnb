@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
    before_action :authenticate_user!
 
   def dashboard
+    @user_bookings = current_user.bookings
     @bookings = Booking.all
     @disable_navbar = true
   end
