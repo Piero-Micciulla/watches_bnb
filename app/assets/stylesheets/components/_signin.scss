@@ -4,11 +4,10 @@
   padding: 10px;
 }
 .hallo{
-  margin-left: 225px;
+margin-left: 250px;
   justify-content:center;
+  text-align: center;
 }
-
-
 
 .correct-center{
   margin-right: 160px;
@@ -24,15 +23,15 @@
   text-align: center;
   font-weight: 100;
 }
-
+§
 
 .login-actions{
-
   color: white;
 }
 
 .signin-actions{
 color: white;
+margin-right: 269px;
 }
 
 .container-sign-in .btn{
@@ -41,7 +40,13 @@ color: white;
   margin: 5px;
   border: 0.3px solid rgba(255,255,255,0.3);
 }
+.form-actions {
+    margin-right: 269px;
+}
 
+.password-show{
+   margin-right: 269px;
+}
 .btn:hover {
 
 }
@@ -64,6 +69,12 @@ color: white;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    margin-right: 279px;
 }
 
 input#user_email {
