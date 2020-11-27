@@ -93,7 +93,7 @@
           <div class="my-watch-cards">
           <% current_user.watches.each do |watch| %>
             <div class="my-watch-card d-flex">
-              <%= cl_image_tag(watch.photos.last.key, :alt => "rss feed", class: "my-watch-image" ) %>
+              <%= cl_image_tag(watch.photos.last.key, :alt => "rss feed", class: "my-watch-image-dashboard" ) %>
 
               <div class='my-watch-info'>
 

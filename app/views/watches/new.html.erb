@@ -6,7 +6,9 @@
   </div>
 
   <div class="logo-box">
+    <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo.png", :class => "dashboard-style-logo", :id => "sidebar" %>
+    <% end %>
   </div>
   <%= link_to dashboard_path do %>
   <div class="back-edit-btn">
