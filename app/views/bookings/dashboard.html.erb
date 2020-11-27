@@ -34,10 +34,10 @@
             </br>
             <div class="dashboard-cards">
 
-              <% current_user.bookings.each do |booking| %>
+              <% @user_bookings.each do |booking| %>
               <% if booking.end_date > Time.now  %>
                 <div class="card dashboard-card" style="width: 18rem;">
-                  <img class="card-img-top" src="..." alt="Card image cap">
+                  <%= booking.photo %>
                   <div class="card-body">
                     <div class="booked-card-info d-flex justify-content-between">
                       <h5 class="card-title-dashboard"><%= booking.watch.brand %></h5>
@@ -65,7 +65,7 @@
           </div>
 
           <div class="dashboard-cards">
-              <% current_user.bookings.each do |booking| %>
+              <% @user_bookings.each do |booking| %>
               <% if booking.end_date < Time.now  %>
                 <div class="card dashboard-card" style="width: 18rem;">
                   <img class="card-img-top" src="..." alt="Card image cap">
