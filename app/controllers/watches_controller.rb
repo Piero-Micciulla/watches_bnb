@@ -38,11 +38,12 @@ class WatchesController < ApplicationController
   end
 
   def show
-    @markers = {
-      lat: @watch.latitude,
-      lng: @watch.longitude,
+    @marker = [{
+      lat: @watch.user.address.latitude,
+      lng: @watch.user.address.longitude,
       image_url: helpers.asset_url('map_logo_2.jpg')
-    }
+    }]
+
   end
 
   def new
