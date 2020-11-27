@@ -28,7 +28,7 @@
       <%= f.input :brand %>
       <%= f.input :description %>
       <%= f.input :material_id, collection: Material.all, value_method: :id,label: "Material", include_blank: false, selected: @watch.material_id %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true, name: "post_attachments[photos][]" } %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Submit", class: "btn btn-dark  w-25" %>
       <% end %>
 
