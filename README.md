@@ -1,1 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+"Watch It" is me and my team personal idea of an AirBnB clone. The platform would allow you to rent expensive watches in Amsterdam with minimal effort and with the possibility of setting the dates for your rental.
